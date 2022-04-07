@@ -1,7 +1,19 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
+  ],
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        18: "4.5rem",
+      },
+      width: {
+        50: "12.5rem",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("tw-elements/dist/plugin")],
 };
