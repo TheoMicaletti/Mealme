@@ -1,5 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* Dark mode */
 html.dark body {
   @apply bg-gray-800;
+}
+
+.text-atma{
+  font-family: 'Atma', cursive;
+}
+.text-mada{
+  font-family: 'Mada', sans-serif;
+}
+
+.text-gradient {
+  background: #8DDC93;
+  background: -webkit-linear-gradient(to bottom right, #78B07C 0%, #ffdb20 100%);
+  background: -moz-linear-gradient(to bottom right, #78B07C 0%, #ffdb20 100%);
+  background: linear-gradient(to bottom right, #78B07C 0%, #ffdb20 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
