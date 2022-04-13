@@ -17,7 +17,7 @@ function Suggestions({ data = [], onSelect }) {
   );
 }
 
-function AutoComplete({ data }) {
+export default function AutoComplete({ data }) {
   const ingredients = data.map((ingredient) => ingredient.toLowerCase());
 
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -61,10 +61,6 @@ function AutoComplete({ data }) {
 
   return (
     <>
-      <h1 className="mt-8 mb-4 mt-24 lg:text-6xl text-4xl dark:text-white text-center text-mada">
-        Let&apos;s{" "}
-        <span className="text-gradient text-atma font-bold">cook!</span>
-      </h1>
       <h2 className="mx-auto mt-16 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5 dark:text-white text-mada">
         Choose your ingredients:{" "}
       </h2>
@@ -109,5 +105,3 @@ function AutoComplete({ data }) {
     </>
   );
 }
-
-export default AutoComplete;
