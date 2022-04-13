@@ -1,8 +1,25 @@
-import React from "react";
-import mealRecipes from "@assets/dataMeal";
+import React, { useState, useEffect } from "react";
+
+import { getRecipeByIngredient } from "@services/api.js";
 
 export default function Carrousel() {
-  const [firstRecipe, ...otherRecipe] = mealRecipes;
+  const [mealRecipes, setMealRecipes] = useState([]);
+  const [firstRecipe, setFirstRecipe] = useState();
+  const [isRecipesLoading, setIsRecipesLoading] = useState(true);
+
+  useEffect(() => {
+    (async function getRecipe() {
+      setIsRecipesLoading(true);
+      const [firstRecipeData, ...recipes] = await getRecipeByIngredient("beef");
+      setMealRecipes(recipes);
+      setFirstRecipe(firstRecipeData);
+      setIsRecipesLoading(false);
+    })();
+  }, []);
+
+  if (isRecipesLoading) {
+    return <p>Chargement des recettes ...</p>;
+  }
 
   return (
     <>
@@ -10,7 +27,7 @@ export default function Carrousel() {
         Choose your{" "}
         <span className="text-gradient text-atma font-bold">meal!</span>
       </h1>
-      <div className="mx-auto mt-14 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5">
+      <div className="mx-auto my-14 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5">
         <div
           id="carouselExampleControls"
           className="carousel slide relative"
@@ -31,7 +48,7 @@ export default function Carrousel() {
                 </div>
               </div>
             </div>
-            {otherRecipe.map((item) => (
+            {mealRecipes.map((item) => (
               <div
                 key={item.idMeal}
                 className="carousel-item relative float-left w-full"
@@ -52,30 +69,28 @@ export default function Carrousel() {
             ))}
           </div>
           <button
-            className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+            className="carousel-control-prev absolute top-0 bottom-20 -left-1/4 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
           >
-            <span
-              className="carousel-control-prev-icon inline-block bg-no-repeat"
-              aria-hidden="true"
-            >
-              {" "}
+            <span className="inline-block bg-no-repeat" aria-hidden="true">
+              <i className="fa-solid fa-circle-chevron-left text-[#78B07C] dark:text-[#ffdb20] text-4xl">
+                {" "}
+              </i>
             </span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+            className="carousel-control-next absolute top-0 bottom-20 -right-1/4 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
           >
-            <span
-              className="carousel-control-next-icon inline-block bg-no-repeat"
-              aria-hidden="true"
-            >
-              {" "}
+            <span className="inline-block bg-no-repeat" aria-hidden="true">
+              <i className="fa-solid fa-circle-chevron-right text-[#78B07C] dark:text-[#ffdb20] text-4xl">
+                {" "}
+              </i>
             </span>
             <span className="visually-hidden">Next</span>
           </button>
