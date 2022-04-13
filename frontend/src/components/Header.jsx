@@ -17,16 +17,16 @@ function Header() {
 
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0 w-100%">
+      <div className="fixed top-0 left-0 right-0 w-100% z-50">
         <nav className="backdrop-blur-xl bg-transparent h-18" />
         <a href="http://localhost:3000/#">
           <img
-            className="fixed top-0 left-0 right-0 w-52 m-2 dark:hidden"
+            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-52 m-2 dark:hidden"
             src={Image}
             alt="LogoName"
           />
           <img
-            className="fixed top-0 left-0 right-0 w-50 m-2 hidden dark:block"
+            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-50 m-2 hidden dark:block"
             src={DarkImage}
             alt="LogoName"
           />
@@ -35,7 +35,7 @@ function Header() {
         <button
           id="theme-toggle"
           type="button"
-          className="fixed top-4 right-4 text-gray-800 dark:text-yellow-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-900 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5"
+          className="fixed transition-all duration-300 border-solid border-2 border-gray-700  dark:border-gray-200  top-4 right-4 text-gray-800 dark:text-yellow-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-900 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5"
           onClick={onToggleDark}
         >
           <svg
