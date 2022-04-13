@@ -13,6 +13,9 @@ module.exports = {
       width: {
         50: "12.5rem",
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [require("tw-elements/dist/plugin")],
