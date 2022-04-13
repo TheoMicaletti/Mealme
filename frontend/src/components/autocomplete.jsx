@@ -89,7 +89,7 @@ export default function AutoComplete({ data }) {
             >
               Add
             </button>
-            <ul className="absolute ml-4 inline-flex dark:text-white text-center">
+            <ul className="absolute ml-4 inline-flex text-center">
               {selectedIngredients.map((ingredient) => (
                 <li
                   className="mt-4 mr-4 w-24 text-white border-1 rounded-3xl bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"

@@ -1,7 +1,6 @@
-import Header from "@components/Header";
-import Autocomplete from "@components/autocomplete";
 import { autoCompleteData } from "@assets/data.js";
-import Footer from "@components/Footer";
+import { Link } from "react-router-dom";
+import Autocomplete from "@components/autocomplete";
 
 export default function Home() {
   return (
@@ -10,18 +9,18 @@ export default function Home() {
         Let&apos;s{" "}
         <span className="text-gradient text-atma font-bold">cook!</span>
       </h1>
-      <Header />
       <Autocomplete data={autoCompleteData} />
       <div className="mt-24 flex justify-center">
-        <button
-          type="button"
-          className="w-32 lg:text-2xl text-2xl border-2 rounded-3xl dark:text-white text-mada"
-        >
-          Let&apos;s{" "}
-          <span className="text-gradient text-atma font-bold">eat!</span>
-        </button>
+        <Link to="/Carrousel">
+          <button
+            type="button"
+            className="w-32 lg:text-2xl text-2xl border-2 rounded-3xl dark:text-white text-mada"
+          >
+            Let&apos;s{" "}
+            <span className="text-gradient text-atma font-bold">eat!</span>
+          </button>
+        </Link>
       </div>
-      <Footer />
     </>
   );
 }

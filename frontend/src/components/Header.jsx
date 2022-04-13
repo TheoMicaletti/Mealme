@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Image from "@assets/logoName.png";
 import DarkImage from "@assets/darkLogoName.png";
@@ -19,7 +20,7 @@ function Header() {
     <div>
       <div className="fixed top-0 left-0 right-0 w-100% z-50">
         <nav className="backdrop-blur-xl bg-transparent h-18" />
-        <a href="http://localhost:3000/#">
+        <Link to="/">
           <img
             className="hover:cursor-pointer fixed top-0 left-0 right-0 w-52 m-2 dark:hidden"
             src={Image}
@@ -30,7 +31,7 @@ function Header() {
             src={DarkImage}
             alt="LogoName"
           />
-        </a>
+        </Link>
 
         <button
           id="theme-toggle"
