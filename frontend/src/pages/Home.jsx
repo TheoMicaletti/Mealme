@@ -1,6 +1,6 @@
 import { autoCompleteData } from "@assets/data.js";
 import { Link } from "react-router-dom";
-import Autocomplete from "@components/autocomplete";
+import Autocomplete from "@components/Autocomplete";
 
 export default function Home() {
   return (
