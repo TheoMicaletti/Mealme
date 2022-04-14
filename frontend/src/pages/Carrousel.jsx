@@ -23,11 +23,11 @@ export default function Carrousel() {
 
   return (
     <>
-      <h1 className="mt-8 mb-4 mt-24 lg:text-6xl md:text-4xl sm:text-2xl dark:text-white text-center text-mada">
+      <h1 className="mt-6 mb-2 mt-24 lg:text-6xl text-4xl dark:text-white text-center text-mada">
         Choose your{" "}
         <span className="text-gradient text-atma font-bold">meal!</span>
       </h1>
-      <div className="mx-auto my-14 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5">
+      <div className="mx-auto my-10 lg:w-1/3 lg:h-1/3 md:w-1/2 md:h-1/2 w-3/5 h-3/5">
         <div
           id="carouselExampleControls"
           className="carousel slide relative"

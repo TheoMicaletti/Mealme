@@ -17,6 +17,14 @@ html.dark body {
   font-family: "Mada", sans-serif;
 }
 
+.text-yellow {
+  color: #ffdb20;
+}
+
+.text-green {
+  color: #78b07c;
+}
+
 .text-gradient {
   background: #8ddc93;
   background: -webkit-linear-gradient(

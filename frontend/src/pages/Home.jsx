@@ -1,6 +1,5 @@
-import { autoCompleteData } from "@assets/data.js";
 import { Link } from "react-router-dom";
-import Autocomplete from "@components/Autocomplete";
+import IngredientsAutocomplete from "@components/IngredientsAutocomplete";
 
 export default function Home() {
   return (
@@ -9,7 +8,9 @@ export default function Home() {
         Let&apos;s{" "}
         <span className="text-gradient text-atma font-bold">cook!</span>
       </h1>
-      <Autocomplete data={autoCompleteData} />
+
+      <IngredientsAutocomplete />
+
       <div className="mt-24 flex justify-center">
         <Link to="/Carrousel">
           <button
