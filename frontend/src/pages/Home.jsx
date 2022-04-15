@@ -9,7 +9,6 @@ export default function Home() {
         Let&apos;s{" "}
         <span className="z-10 text-gradient text-atma font-bold">cook!</span>
       </h1>
-
       <IngredientsAutocomplete />
 
       <div className="mt-24 flex justify-center">
