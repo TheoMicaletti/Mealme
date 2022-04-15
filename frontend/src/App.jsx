@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <main className="mt-36">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Carrousel" element={<Carrousel />} />

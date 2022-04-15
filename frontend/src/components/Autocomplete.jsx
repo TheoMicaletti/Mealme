@@ -2,18 +2,20 @@ import { useState } from "react";
 
 function Suggestions({ data = [], onSelect }) {
   return (
-    <ul className="absolute mx-8 my-14 w-64 text-lg z-10 bg-white border-1 rounded dark:text-white">
-      {data.map((suggestion) => (
-        // eslint-disable-next-line
-        <li
-          key={suggestion}
-          className="leading-10 hover:bg-slate-100 dark:text-black"
-          onClick={() => onSelect(suggestion)}
-        >
-          {suggestion}
-        </li>
-      ))}
-    </ul>
+    <div className="flex justify-center">
+      <ul className="flex flex-col text-lg border-1 z-10 rounded dark:text-white">
+        {data.map((suggestion) => (
+          // eslint-disable-next-line
+          <li
+            key={suggestion}
+            className="pr-36 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
+            onClick={() => onSelect(suggestion)}
+          >
+            {suggestion}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -34,7 +36,7 @@ export default function AutoComplete({ data }) {
     const { value } = e.target;
     setSelectedSuggestion(value);
 
-    if (value.length > 1) {
+    if (value.length > 2) {
       const filterSuggestions = ingredients.filter(
         (suggestion) => suggestion.indexOf(value.toLowerCase()) > -1
       );
@@ -59,41 +61,39 @@ export default function AutoComplete({ data }) {
 
   return (
     <>
-      <h2 className="mx-auto mt-16 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5 dark:text-white text-mada">
+      <h2 className="flex justify-center pr-44 mb-4 mt-12 dark:text-white text-mada">
         Choose your ingredients:{" "}
       </h2>
-      <div className="mx-auto mt-2 lg:w-2/6 lg:h-2/6 w-3/5 h-3/5">
-        <div className="">
-          {suggestionsActive && (
-            <Suggestions
-              data={suggestions}
-              onSelect={handleSuggestionChange}
-              onClick={handleSubmit}
-            />
-          )}
-          <form onSubmit={handleSubmit}>
-            <div className="flex justify-center">
-              <input
-                type="text"
-                className="h-14 w-96 pl-10 pr-20 border-1 border-black rounded-3xl z-0 focus:shadow focus:outline-none"
-                placeholder="Add ingredients"
-                value={selectedSuggestion}
-                onChange={handleChange}
-              />
-            </div>
-            <ul className="absolute ml-4 inline-flex dark:text-white text-center">
-              {selectedIngredients.map((ingredient) => (
-                <li
-                  className="mt-4 mr-4 w-24 text-white border-1 rounded-3xl bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
-                  key={ingredient}
-                >
-                  {ingredient}
-                </li>
-              ))}
-            </ul>
-          </form>
+      <form onSubmit={handleSubmit}>
+        <div className="flex justify-center">
+          <input
+            type="text"
+            className="h-14 w-96 pl-10 pr-20 border-1 border-black rounded-3xl focus:shadow focus:outline-none"
+            placeholder="Add ingredients"
+            value={selectedSuggestion}
+            onChange={handleChange}
+          />
         </div>
+      </form>
+      <div>
+        {suggestionsActive && (
+          <Suggestions
+            data={suggestions}
+            onSelect={handleSuggestionChange}
+            onClick={handleSubmit}
+          />
+        )}
       </div>
+      <ul className="flex justify-center dark:text-white">
+        {selectedIngredients.map((ingredient) => (
+          <li
+            className="mt-6 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
+            key={ingredient}
+          >
+            {ingredient}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
