@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
 
-        <main className="mt-24">
+        <main className="mt-36">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Carrousel" element={<Carrousel />} />
