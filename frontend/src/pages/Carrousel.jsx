@@ -27,17 +27,18 @@ export default function Carrousel() {
         Choose your{" "}
         <span className="text-gradient text-atma font-bold">meal!</span>
       </h1>
-      <div className="mx-auto my-10 lg:w-1/3 lg:h-1/3 md:w-1/2 md:h-1/2 w-3/5 h-3/5">
+      <div className="mx-auto my-10 lg:w-1/4 lg:h-1/4 md:w-1/2 md:h-1/2 w-2/3 h-2/3">
         <div
           id="carouselExampleControls"
           className="carousel slide relative"
           data-bs-ride="carousel"
+          data-carousel="static"
         >
           <div className="carousel-inner relative w-full overflow-hidden rounded-[95px]">
-            <div className="carousel-item active relative float-left w-full ">
+            <div className="carousel-item active relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105">
               <img
                 src={firstRecipe.strMealThumb}
-                className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px]"
+                className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px] shadow-lg shadow-gray-400"
                 alt={firstRecipe.strMeal}
               />
               <div className="flex justify-center">
@@ -51,11 +52,11 @@ export default function Carrousel() {
             {mealRecipes.map((item) => (
               <div
                 key={item.idMeal}
-                className="carousel-item relative float-left w-full"
+                className="carousel-item relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105"
               >
                 <img
                   src={item.strMealThumb}
-                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px]"
+                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px] shadow-lg shadow-gray-400"
                   alt={item.strMeal}
                 />
                 <div className="flex justify-center">
@@ -75,7 +76,7 @@ export default function Carrousel() {
             data-bs-slide="prev"
           >
             <span className="inline-block bg-no-repeat" aria-hidden="true">
-              <i className="fa-solid fa-circle-chevron-left text-[#78B07C] dark:text-[#ffdb20] text-4xl">
+              <i className="fa-solid fa-circle-chevron-left text-[#78B07C] dark:text-[#ffdb20] text-4xl hover:scale-110">
                 {" "}
               </i>
             </span>
@@ -88,7 +89,7 @@ export default function Carrousel() {
             data-bs-slide="next"
           >
             <span className="inline-block bg-no-repeat" aria-hidden="true">
-              <i className="fa-solid fa-circle-chevron-right text-[#78B07C] dark:text-[#ffdb20] text-4xl">
+              <i className="fa-solid fa-circle-chevron-right text-[#78B07C] dark:text-[#ffdb20] text-4xl hover:scale-110">
                 {" "}
               </i>
             </span>
