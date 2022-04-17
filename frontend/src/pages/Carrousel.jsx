@@ -22,12 +22,12 @@ export default function Carrousel() {
   }
 
   return (
-    <div className="m-auto w-[80%]">
-      <h1 className="mt-4 mb-6 lg:text-5xl text-4xl md:text-3xl dark:text-white text-center text-mada">
+    <div className="my-20 mx-auto">
+      <h1 className="mt-4 mb-6 lg:text-5xl text-3xl md:text-2xl dark:text-white text-center text-mada">
         Choose your{" "}
         <span className="text-gradient text-atma font-bold">meal!</span>
       </h1>
-      <div className="mx-auto my-auto lg:w-1/3 lg:h-1/3 md:w-1/2 md:h-1/2 w-2/3 h-2/3">
+      <div className="mx-auto my-auto lg:w-1/3 md:w-1/2 sm:w-1/4 w-4/5">
         <div
           id="carouselExampleControls"
           className="carousel slide relative"
@@ -70,7 +70,7 @@ export default function Carrousel() {
             ))}
           </div>
           <button
-            className="carousel-control-prev absolute top-0 bottom-20 -left-1/4 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="carousel-control-prev absolute top-0 bottom-20 md:-left-1/4 -left-7 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
@@ -83,7 +83,7 @@ export default function Carrousel() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next absolute top-0 bottom-20 -right-1/4 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="carousel-control-next absolute top-0 bottom-20 md:-right-1/4 -right-7 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
