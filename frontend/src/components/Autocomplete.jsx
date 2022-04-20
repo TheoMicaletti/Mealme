@@ -8,7 +8,7 @@ function Suggestions({ data = [], onSelect }) {
           // eslint-disable-next-line
           <li
             key={suggestion}
-            className="pr-36 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
+            className="pr-52 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
             onClick={() => onSelect(suggestion)}
           >
             {suggestion}
@@ -84,10 +84,10 @@ export default function AutoComplete({ data }) {
           />
         )}
       </div>
-      <ul className="flex justify-center dark:text-white">
-        {selectedIngredients.map((ingredient) => (
+      <ul className="flex justify-center">
+        {selectedIngredients.slice(0, 3).map((ingredient) => (
           <li
-            className="mt-6 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
+            className="mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
             key={ingredient}
           >
             {ingredient}
