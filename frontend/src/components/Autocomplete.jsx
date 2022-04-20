@@ -61,7 +61,7 @@ export default function AutoComplete({ data }) {
 
   return (
     <>
-      <h2 className="flex justify-center pr-44 mb-4 mt-12 dark:text-white text-mada">
+      <h2 className="flex justify-center pr-44 mb-4 mt-12 text-mada">
         Choose your ingredients:{" "}
       </h2>
       <form onSubmit={handleSubmit}>

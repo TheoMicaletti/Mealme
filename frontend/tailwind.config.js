@@ -19,6 +19,9 @@ module.exports = {
       backgroundImage: {
         "bg-bodyfull": "url('./assets/bg.jpg')",
       },
+      minWidth: {
+        "90%": "90%",
+      },
     },
   },
   plugins: [require("tw-elements/dist/plugin")],

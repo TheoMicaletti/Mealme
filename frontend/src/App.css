@@ -39,11 +39,17 @@ html.dark body {
   background: #8ddc93;
   background: -webkit-linear-gradient(
     to bottom right,
-    #78b07c 0%,
+    #8ddc93 0%,
     #ffdb20 100%
   );
-  background: -moz-linear-gradient(to bottom right, #78b07c 0%, #ffdb20 100%);
-  background: linear-gradient(to bottom right, #78b07c 0%, #ffdb20 100%);
+  background: -moz-linear-gradient(to bottom right, #8ddc93 0%, #ffdb20 100%);
+  background: linear-gradient(to bottom right, #8ddc93 0%, #ffdb20 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.bg-image-fruit {
+  background-image: url(./assets/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }

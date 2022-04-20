@@ -36,7 +36,6 @@ function App() {
             <Route path="/legal" element={<Legal />} />
           </Routes>
         </main>
-
         <Footer />
       </BrowserRouter>
     </div>
