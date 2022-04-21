@@ -22,9 +22,16 @@ function Suggestions({ data = [], onSelect }) {
 export default function AutoComplete({ data, onSelect }) {
   const ingredients = data.map((ingredient) => ingredient.toLowerCase());
 
+  // Tableau dans lequel s'ajoutent les ingrédients épinglés
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  // Ingrédients suggérés dans la liste de suggestion
   const [suggestions, setSuggestions] = useState([]);
+
+  // Affiche la liste de suggestion (true) ou non (false)
   const [suggestionsActive, setSuggestionsActive] = useState(false);
+
+  // Capte les caractères tapés dans la barre de recherche
   const [selectedSuggestion, setSelectedSuggestion] = useState("");
 
   /**
@@ -62,8 +69,16 @@ export default function AutoComplete({ data, onSelect }) {
     e.preventDefault();
   };
 
+  /** au clic en dehors de la liste de suggestions,
+   * celle-ci se replie
+   */
+  const handleClick = () => {
+    setSuggestionsActive(false);
+  };
+
   return (
-    <>
+    // eslint-disable-next-line
+    <div onClick={handleClick}>
       <h2 className="flex justify-center pr-44 mb-4 mt-12 text-mada">
         Choose your ingredients:{" "}
       </h2>
@@ -88,15 +103,16 @@ export default function AutoComplete({ data, onSelect }) {
         )}
       </div>
       <ul className="flex justify-center">
-        {selectedIngredients.slice(0, 3).map((ingredient) => (
+        {selectedIngredients.slice(0, 3).map((selectedIng) => (
           <li
             className="mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
-            key={ingredient}
+            key={selectedIng}
           >
-            {ingredient}
+            {/* ingrédients épinglés */}
+            {selectedIng}
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
