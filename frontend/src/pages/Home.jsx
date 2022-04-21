@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="absolute bg-[url('@assets/bg.jpg')] bg-fixed left-0 right-0 bottom-0 bg-no-repeat bg-top h-screen bg-cover -z-50 opacity-10" />
-      <div>
+      <div className="m-40 rounded-3xl border-2 border-[#8ddc93] bg-[#8ddc93] drop-shadow-lg">
         <h1 className="mt-28 z-10 lg:text-6xl text-4xl dark:text-white text-center text-mada">
           Let&apos;s{" "}
           <span className="z-10 text-gradient text-atma font-bold">cook!</span>
