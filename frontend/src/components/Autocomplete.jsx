@@ -19,7 +19,7 @@ function Suggestions({ data = [], onSelect }) {
   );
 }
 
-export default function AutoComplete({ data }) {
+export default function AutoComplete({ data, onSelect }) {
   const ingredients = data.map((ingredient) => ingredient.toLowerCase());
 
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -51,8 +51,11 @@ export default function AutoComplete({ data }) {
     setSuggestions([]);
     setSelectedSuggestion(value);
     setSuggestionsActive(false);
-    setSelectedIngredients([...selectedIngredients, value]);
     setSelectedSuggestion("");
+
+    const newSelectedIngredients = [...selectedIngredients, value];
+    setSelectedIngredients(newSelectedIngredients);
+    onSelect(newSelectedIngredients);
   };
 
   const handleSubmit = (e) => {

@@ -18,23 +18,22 @@ function App() {
     }, 2000);
   }, []);
 
-  return loader ? (
-    <BrowserRouter>
-      <Header />
-      <Loader />
-      <Footer />
-    </BrowserRouter>
-  ) : (
+  return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Carrousel" element={<Carrousel />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/legal" element={<Legal />} />
-          </Routes>
+
+        <main className="mt-24">
+          {loader ? (
+            <Loader />
+          ) : (
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/carrousel" element={<Carrousel />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legal" element={<Legal />} />
+            </Routes>
+          )}
         </main>
         <Footer />
       </BrowserRouter>

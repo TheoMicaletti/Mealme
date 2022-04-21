@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
-import { getRecipeByIngredient } from "@services/api.js";
+import { getRecipesByIngredients } from "@services/api.js";
+
+import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
 
 export default function Carrousel() {
+  // Hook permettant de récupérer les paramètre de la query string (?string1=ingrédient1&string2=ingrédient2...)
+  const [queryString] = useSearchParams();
+
   const [mealRecipes, setMealRecipes] = useState([]);
   const [firstRecipe, setFirstRecipe] = useState();
   const [isRecipesLoading, setIsRecipesLoading] = useState(true);
@@ -10,7 +16,17 @@ export default function Carrousel() {
   useEffect(() => {
     (async function getRecipe() {
       setIsRecipesLoading(true);
-      const [firstRecipeData, ...recipes] = await getRecipeByIngredient("beef");
+
+      // On récupère les ingredients s'ils sont présent dans la queryString,
+      // Sinon on choisi un tableau vide  par défaut.
+      const ingredients = queryString.get("ingredients")
+        ? queryString.get("ingredients").split(",")
+        : [];
+
+      const [firstRecipeData, ...recipes] = await getRecipesByIngredients(
+        ingredients
+      );
+
       setMealRecipes(recipes);
       setFirstRecipe(firstRecipeData);
       setIsRecipesLoading(false);
@@ -19,6 +35,28 @@ export default function Carrousel() {
 
   if (isRecipesLoading) {
     return <p>Chargement des recettes ...</p>;
+  }
+
+  if (mealRecipes.length === 0) {
+    return (
+      <div className="max-w-xs mx-auto">
+        <img src={noRecipeFoundBlack} alt="No recipes found" className="" />
+        <h3 className="text-center text-mada text-4xl dark:text-white mb-36">
+          No <span className="text-gradient text-atma font-bold">Recipes</span>{" "}
+          Found !
+        </h3>
+        <button
+          className="px-4 py-2 text-2xl border-2 rounded-3xl dark:text-white text-mada flex mx-auto pointer-events-auto shadow-md shadow-gray-400"
+          type="button"
+        >
+          Go back to the{" "}
+          <span className="text-gradient text-atma px-2 font-bold">
+            kitchen
+          </span>{" "}
+          !
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -70,7 +108,7 @@ export default function Carrousel() {
             ))}
           </div>
           <button
-            className="carousel-control-prev absolute top-0 bottom-20 md:-left-1/4 -left-7 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="carousel-control-prev absolute top-0 bottom-20 md:-left-1/4 -left-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
@@ -83,7 +121,7 @@ export default function Carrousel() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next absolute top-0 bottom-20 md:-right-1/4 -right-7 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="carousel-control-next absolute top-0 bottom-20 md:-right-1/4 -right-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
