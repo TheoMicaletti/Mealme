@@ -23,7 +23,7 @@ function App() {
       <BrowserRouter>
         <Header />
 
-        <main className="mt-24">
+        <main className="mt-36 h-min-screen">
           {loader ? (
             <Loader />
           ) : (

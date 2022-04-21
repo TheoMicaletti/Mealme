@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div>
-      <div className="text-mada inset-x-0 bottom-0 p-1 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-100%" />
-      <footer className="text-mada inset-x-0 bottom-0 p-3 bg-gray-800 dark:bg-zinc-800 w-100% flex items-center justify-between">
+      <div className="text-mada mt-auto top-0 inset-x-0 p-1 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-100%" />
+      <footer className="text-mada mt-auto top-0 nset-x-0 p-3 bg-gray-800 dark:bg-zinc-800 w-100% flex items-center justify-between">
         <span className="flex items-center text-white">
           {" "}
           <img className="w-8 mr-3" src={Image} alt="logo" /> ©2022 Mealme™
