@@ -6,7 +6,7 @@ import Footer from "@components/Footer";
 import Home from "@pages/Home";
 import Contact from "@pages/Contact";
 import Legal from "@pages/Legal";
-import Loader from "./Loader";
+import Loader from "@components/Loader";
 import "./App.css";
 
 function App() {
