@@ -24,7 +24,7 @@ export default function Home() {
               <button
                 type="button"
                 disabled={selectedIngredients.length === 0}
-                className="w-40 z-10 text-center lg:text-2xl bg-white dark:bg-gray-800 text-2xl p-1 rounded-3xl dark:text-white text-mada disabled:bg-gray-300"
+                className="w-40 z-10 text-center lg:text-2xl bg-white dark:bg-gray-800 text-2xl p-1 rounded-3xl dark:text-white text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300"
               >
                 Let&apos;s{" "}
                 <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold pointer-events-none">
