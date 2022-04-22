@@ -76,6 +76,13 @@ export default function AutoComplete({ data, onSelect }) {
     setSuggestionsActive(false);
   };
 
+  const handleDelete = (id) => {
+    const deletableIngredient = selectedIngredients.filter((ingredient) => {
+      return ingredient.id !== id;
+    });
+    setSelectedIngredients(deletableIngredient);
+  };
+
   return (
     // eslint-disable-next-line
     <div onClick={handleClick}>
@@ -103,13 +110,20 @@ export default function AutoComplete({ data, onSelect }) {
         )}
       </div>
       <ul className="flex justify-center">
-        {selectedIngredients.slice(0, 3).map((selectedIng) => (
+        {selectedIngredients.slice(0, 3).map((ingredient) => (
           <li
             className="mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
-            key={selectedIng}
+            key={ingredient}
           >
             {/* ingrédients épinglés */}
-            {selectedIng}
+            {ingredient}
+            <button
+              type="button"
+              key={ingredient.id}
+              onClick={() => handleDelete(ingredient.id)}
+            >
+              x
+            </button>
           </li>
         ))}
       </ul>

@@ -37,9 +37,11 @@ html.dark body {
 
 .text-gradient {
   background: #8ddc93;
-  background: -webkit-linear-gradient(to bottom right,
-      #8ddc93 0%,
-      #ffdb20 100%);
+  background: -webkit-linear-gradient(
+    to bottom right,
+    #8ddc93 0%,
+    #ffdb20 100%
+  );
   background: -moz-linear-gradient(to bottom right, #8ddc93 0%, #ffdb20 100%);
   background: linear-gradient(to bottom right, #8ddc93 0%, #ffdb20 100%);
   -webkit-background-clip: text;
