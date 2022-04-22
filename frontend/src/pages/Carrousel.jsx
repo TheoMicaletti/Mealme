@@ -67,18 +67,18 @@ export default function Carrousel() {
         Choose your{" "}
         <span className="text-gradient text-atma font-bold">meal!</span>
       </h1>
-      <div className="mx-auto my-auto w-3/5 h-3/5 lg:w-2/5 lg:h-2/5">
+      <div className="mx-auto my-auto w-full h-full max-w-sm max-h-sm">
         <div
           id="carouselExampleControls"
           className="carousel slide relative"
           data-bs-ride="carousel"
           data-carousel="static"
         >
-          <div className="carousel-inner relative w-full overflow-hidden rounded-[95px]">
+          <div className="carousel-inner relative w-full overflow-hidden rounded-[80px]">
             <div className="carousel-item active relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105">
               <img
                 src={firstRecipe.recipe.image}
-                className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px] shadow-lg shadow-gray-400"
+                className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
                 alt={firstRecipe.recipe.label}
               />
               <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
@@ -90,14 +90,14 @@ export default function Carrousel() {
                 </p>
               </div>
             </div>
-            {mealRecipes.map((item) => (
+            {mealRecipes.slice(0, 4).map((item) => (
               <div
                 key={uuid()}
                 className="carousel-item relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105"
               >
                 <img
                   src={item.recipe.image}
-                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[100px] shadow-lg shadow-gray-400"
+                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
                   alt={item.recipe.label}
                 />
                 <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
