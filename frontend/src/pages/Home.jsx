@@ -15,7 +15,10 @@ export default function Home() {
         </span>
       </h1>
       <div className="m-36 pb-24 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-2 dark:border-[#ffdb20] border-[#8ddc93] bg-[#8ddc93] dark:bg-[#ffdb20] drop-shadow-lg">
-        <IngredientsAutocomplete onSelect={setSelectedIngredients} />
+        <IngredientsAutocomplete
+          onSelect={setSelectedIngredients}
+          onClick={setSelectedIngredients}
+        />
         <div className="flex justify-center">
           <div className="flex mt-12">
             <Link

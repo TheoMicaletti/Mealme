@@ -19,7 +19,7 @@ function Suggestions({ data = [], onSelect }) {
   );
 }
 
-export default function AutoComplete({ data, onSelect }) {
+export default function AutoComplete({ data, onSelect, onClick }) {
   const ingredients = data.map((ingredient) => ingredient.toLowerCase());
 
   // Tableau dans lequel s'ajoutent les ingrédients épinglés
@@ -81,6 +81,7 @@ export default function AutoComplete({ data, onSelect }) {
       return ingredient.id !== id;
     });
     setSelectedIngredients(deletableIngredient);
+    onClick(deletableIngredient);
   };
 
   return (
@@ -112,7 +113,7 @@ export default function AutoComplete({ data, onSelect }) {
       <ul className="flex justify-center">
         {selectedIngredients.slice(0, 3).map((ingredient) => (
           <li
-            className="mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
+            className="p-2 mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
             key={ingredient}
           >
             {/* ingrédients épinglés */}
