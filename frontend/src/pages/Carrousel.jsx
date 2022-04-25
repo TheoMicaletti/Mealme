@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import uuid from "react-uuid";
+import { useSearchParams, Link } from "react-router-dom";
 
 import { getRecipesByIngredients } from "@services/api.js";
 import Loader from "@components/Loader";
@@ -47,16 +46,18 @@ export default function Carrousel() {
           No <span className="text-gradient text-atma font-bold">Recipes</span>{" "}
           Found !
         </h3>
-        <button
-          className="px-4 py-2 text-2xl border-2 rounded-3xl dark:text-white text-mada flex mx-auto pointer-events-auto shadow-md shadow-gray-400"
-          type="button"
-        >
-          Go back to the{" "}
-          <span className="text-gradient text-atma px-2 font-bold">
-            kitchen
-          </span>{" "}
-          !
-        </button>
+        <Link to="/">
+          <button
+            className="px-4 py-2 text-2xl border-2 rounded-3xl dark:text-white text-mada flex mx-auto pointer-events-auto shadow-md shadow-gray-400"
+            type="button"
+          >
+            Go back to the{" "}
+            <span className="text-gradient text-atma px-2 font-bold">
+              kitchen
+            </span>{" "}
+            !
+          </button>
+        </Link>
       </div>
     );
   }
@@ -76,11 +77,13 @@ export default function Carrousel() {
         >
           <div className="carousel-inner relative w-full overflow-hidden rounded-[80px]">
             <div className="carousel-item active relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105">
-              <img
-                src={firstRecipe.recipe.image}
-                className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
-                alt={firstRecipe.recipe.label}
-              />
+              <Link to={`/recipe?id=${firstRecipe.recipe.uri.split("_")[1]}`}>
+                <img
+                  src={firstRecipe.recipe.image}
+                  className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
+                  alt={firstRecipe.recipe.label}
+                />
+              </Link>
               <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
                 <h3 className="dark:text-white mb-4 md:text-4xl text-xl text-center text-mada">
                   {firstRecipe.recipe.label}
@@ -92,14 +95,16 @@ export default function Carrousel() {
             </div>
             {mealRecipes.slice(0, 4).map((item) => (
               <div
-                key={uuid()}
+                key={item.recipe.uri.split("_")[1]}
                 className="carousel-item relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105"
               >
-                <img
-                  src={item.recipe.image}
-                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
-                  alt={item.recipe.label}
-                />
+                <Link to={`/recipe?id=${item.recipe.uri.split("_")[1]}`}>
+                  <img
+                    src={item.recipe.image}
+                    className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
+                    alt={item.recipe.label}
+                  />
+                </Link>
                 <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
                   <h3 className="dark:text-white mb-4 md:text-4xl text-xl text-center text-mada">
                     {item.recipe.label}
