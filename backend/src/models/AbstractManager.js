@@ -10,8 +10,10 @@ class AbstractManager {
     ]);
   }
 
-  findAll() {
-    return this.connection.query(`select * from  ${this.table}`);
+  findAll(params = { orderBy: { field: "ingredients", order: "DESC" } }) {
+    return this.connection.query(
+      `select * from  ${this.table} ORDER BY ${params.orderBy.field} ${params.orderBy.order}`
+    );
   }
 
   delete(id) {

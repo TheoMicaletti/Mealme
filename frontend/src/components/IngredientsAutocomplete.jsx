@@ -9,9 +9,7 @@ export default function IngredientsAutocomplete({ onSelect, onClick }) {
   useEffect(() => {
     (async function getList() {
       setIngredients(
-        (await getIngredientsList()).map(
-          (ingredient) => ingredient.strIngredient
-        )
+        (await getIngredientsList()).map((ingredient) => ingredient.ingredients)
       );
     })();
   }, []);

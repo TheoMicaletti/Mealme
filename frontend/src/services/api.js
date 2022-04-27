@@ -24,8 +24,9 @@ export const getRecipeById = async (id) => {
   return newRecipe.data.recipe ?? {};
 };
 
-const API_URL = "https://www.themealdb.com/api/json/v1/1/";
+// Appel ingredients database
+const DB_URL = "http://localhost:5000/ingredients/";
 
 export const getIngredientsList = async () => {
-  return (await axios.get(`${API_URL}list.php?i=list`)).data.meals;
+  return (await axios.get(DB_URL)).data;
 };

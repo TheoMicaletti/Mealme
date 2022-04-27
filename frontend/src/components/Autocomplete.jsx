@@ -34,11 +34,6 @@ export default function AutoComplete({ data, onSelect, onClick }) {
   // Capte les caractères tapés dans la barre de recherche
   const [selectedSuggestion, setSelectedSuggestion] = useState("");
 
-  /**
-   * Renvoie si la suggestion sélectionnée fait partie de la
-   * liste des suggestions existantes
-   */
-
   const handleChange = (e) => {
     const { value } = e.target;
     setSelectedSuggestion(value);
@@ -76,6 +71,9 @@ export default function AutoComplete({ data, onSelect, onClick }) {
     setSuggestionsActive(false);
   };
 
+  /** au clic sur la croix, l'ingrédient sélectionné
+   * est supprimé
+   */
   const handleDelete = (id) => {
     const deletableIngredient = selectedIngredients.filter((ingredient) => {
       return ingredient.id !== id;

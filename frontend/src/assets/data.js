@@ -1,4 +1,4 @@
-export const autoCompleteData = [
+export const ingredientsTable = [
   "Asparagus",
   "Beetroot",
   "Broccoli",

@@ -1,13 +1,13 @@
 const express = require("express");
 
-const { ItemController } = require("./controllers");
+const { IngredientController } = require("./controllers");
 
 const router = express.Router();
 
-router.get("/items", ItemController.browse);
-router.get("/items/:id", ItemController.read);
-router.put("/items/:id", ItemController.edit);
-router.post("/items", ItemController.add);
-router.delete("/items/:id", ItemController.delete);
+router.get("/ingredients", IngredientController.browse);
+router.get("/ingredients/:id", IngredientController.read);
+router.put("/ingredients/:id", IngredientController.edit);
+router.post("/ingredients", IngredientController.add);
+router.delete("/ingredients/:id", IngredientController.delete);
 
 module.exports = router;
