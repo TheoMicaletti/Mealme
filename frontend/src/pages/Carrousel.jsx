@@ -21,7 +21,7 @@ export default function Carrousel() {
       // On récupère les ingredients s'ils sont présent dans la queryString,
       // Sinon on choisi un tableau vide  par défaut.
       const ingredients = queryString.get("ingredients")
-        ? queryString.get("ingredients").split(",")
+        ? queryString.get("ingredients").split("%20")
         : [];
 
       const [firstRecipeData, ...recipes] = await getRecipesByIngredients(
@@ -93,7 +93,7 @@ export default function Carrousel() {
                 </p>
               </div>
             </div>
-            {mealRecipes.slice(0, 4).map((item) => (
+            {mealRecipes.slice(0, 9).map((item) => (
               <div
                 key={item.recipe.uri.split("_")[1]}
                 className="carousel-item relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105"

@@ -64,7 +64,7 @@ export default function Recipes() {
         </div>
       </div>
       <div className="text-center text-mada dark:text-white mb-36">
-        <h3 className="text-2xl px-4 decoration-solid underline decoration-2 decoration-black dark:decoration-white font-bold">
+        <h3 className="text-2xl px-4 mb-4 decoration-solid underline decoration-2 decoration-black dark:decoration-white font-bold">
           Ingredient List :
         </h3>
         <ul>
