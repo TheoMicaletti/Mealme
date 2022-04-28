@@ -1,7 +1,6 @@
 import React from "react";
 import Shimmer from "./Shimmer";
 import SkeletonElement from "./SkeletonElement";
-import SkeletonProfile from "./SkeletonProfile";
 
 function SkeletonArticle({ theme }) {
   const themeClass = theme || "light";
@@ -24,7 +23,7 @@ function SkeletonArticle({ theme }) {
         </div>
         <SkeletonElement type="avatar" />
       </div>
-      <SkeletonProfile />
+
       <div className={`skeleton-wrapper-title ${themeClass}`}>
         <SkeletonElement type="title" />
         <Shimmer />

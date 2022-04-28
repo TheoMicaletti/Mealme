@@ -36,7 +36,7 @@ export default function Carrousel() {
       setFirstRecipe(firstRecipeData);
       setTimeout(() => {
         setIsRecipesLoading(false);
-      }, 3000);
+      }, 2000);
     })();
   }, []);
 

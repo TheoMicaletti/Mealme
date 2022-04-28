@@ -8,17 +8,10 @@ import Contact from "@pages/Contact";
 import Legal from "@pages/Legal";
 import Loader from "@components/Loader";
 import Recipe from "@pages/Recipe";
-import LoginForm from "@components/LoginForm";
-
 import "./App.css";
 
 function App() {
   const [loader, setLoader] = useState(true);
-  const [isShowLogin, setIsShowLogin] = useState(false);
-
-  const handleLoginClick = () => {
-    setIsShowLogin(() => !isShowLogin);
-  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header handleLoginClick={handleLoginClick} />
-        <LoginForm isShowLogin={isShowLogin} />
+        <Header />
+
         <main className="mt-36">
           {loader ? (
             <Loader />
