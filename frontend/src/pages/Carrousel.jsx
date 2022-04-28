@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-
 import { getRecipesByIngredients } from "@services/api.js";
-import Loader from "@components/Loader";
-
 import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
+import SkeletonArticle from "../skeleton/SkeletonArticle";
 
 export default function Carrousel() {
   // Hook permettant de récupérer les paramètre de la query string (?string1=ingrédient1&string2=ingrédient2...)
+
   const [queryString] = useSearchParams();
 
   const [mealRecipes, setMealRecipes] = useState([]);
@@ -17,9 +16,9 @@ export default function Carrousel() {
   useEffect(() => {
     (async function getRecipe() {
       setIsRecipesLoading(true);
-
       // On récupère les ingredients s'ils sont présent dans la queryString,
       // Sinon on choisi un tableau vide  par défaut.
+
       const ingredients = queryString.get("ingredients")
         ? queryString.get("ingredients").split("%20")
         : [];
@@ -35,12 +34,14 @@ export default function Carrousel() {
 
       setMealRecipes(recipes);
       setFirstRecipe(firstRecipeData);
-      setIsRecipesLoading(false);
+      setTimeout(() => {
+        setIsRecipesLoading(false);
+      }, 3000);
     })();
   }, []);
 
   if (isRecipesLoading) {
-    return <Loader />;
+    return <SkeletonArticle />;
   }
 
   if (mealRecipes.length === 0) {
@@ -66,7 +67,6 @@ export default function Carrousel() {
       </div>
     );
   }
-
   return (
     <div className="mx-auto w-[75%] min-h-screen my-24">
       <h1 className="mt-4 mb-6 lg:text-5xl text-4xl md:text-3xl dark:text-white text-center text-mada">
@@ -145,6 +145,7 @@ export default function Carrousel() {
                 {" "}
               </i>
             </span>
+
             <span className="visually-hidden">Next</span>
           </button>
         </div>

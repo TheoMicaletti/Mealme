@@ -1,6 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-
 import Header from "@components/Header";
 import Carrousel from "@pages/Carrousel";
 import Footer from "@components/Footer";
