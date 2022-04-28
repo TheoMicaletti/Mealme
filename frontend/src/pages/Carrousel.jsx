@@ -24,8 +24,13 @@ export default function Carrousel() {
         ? queryString.get("ingredients").split("%20")
         : [];
 
+      const diet = queryString.get("health")
+        ? queryString.get("health").split(" ")
+        : [];
+
       const [firstRecipeData, ...recipes] = await getRecipesByIngredients(
-        ingredients
+        ingredients,
+        diet
       );
 
       setMealRecipes(recipes);
