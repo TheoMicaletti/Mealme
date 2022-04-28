@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ingredients` (
   `id` int(10) UNSIGNED NOT NULL,
-  `ingredients` text NOT NULL
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `ingredients`
 --
 
-INSERT INTO `ingredients` (`id`, `ingredients`) VALUES
+INSERT INTO `ingredients` (`id`, `name`) VALUES
 (1, 'yogurt'),
 (2, 'yellow onion'),
 (3, 'yellow cake mix'),
