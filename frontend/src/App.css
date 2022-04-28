@@ -53,3 +53,18 @@ html.dark body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.show {
+  transition: 400ms;
+  opacity: 1;
+  padding: 20px;
+  margin: 8px;
+  position: fixed;
+  right: 8px;
+  top: 65px;
+}
+
+.show.active {
+  transform: translateY(-100px) scale(0);
+  opacity: 0;
+}

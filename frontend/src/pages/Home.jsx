@@ -34,7 +34,7 @@ export default function Home() {
           cook!
         </span>
       </h1>
-      <div className="my-20 md:my-36 pb-24 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-2 dark:border-[#ffdb20] border-[#8ddc93] bg-[#8ddc93] dark:bg-[#ffdb20] drop-shadow-lg">
+      <div className="my-20 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-2 dark:border-[#ffdb20] border-[#8ddc93] bg-[#8ddc93] dark:bg-[#ffdb20] drop-shadow-lg">
         <IngredientsAutocomplete
           onSelect={setSelectedIngredients}
           onClick={setSelectedIngredients}
@@ -51,7 +51,7 @@ export default function Home() {
               <button
                 type="button"
                 disabled={selectedIngredients.length === 0}
-                className="w-40 z-10 mb-8 text-center lg:text-2xl bg-white dark:bg-gray-800 text-2xl p-1 rounded-3xl dark:text-white text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300"
+                className="w-40 z-10 mb-8 text-center bg-white dark:bg-gray-800 text-2xl dark:text-white p-1 rounded-3xl text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300"
               >
                 Let&apos;s{" "}
                 <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold pointer-events-none">
