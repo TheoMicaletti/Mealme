@@ -7,11 +7,11 @@ function Suggestions({ data = [], onSelect }) {
         {data.map((suggestion) => (
           // eslint-disable-next-line
           <li
-            key={suggestion}
+            key={suggestion.id}
             className="pr-52 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
             onClick={() => onSelect(suggestion)}
           >
-            {suggestion}
+            {suggestion.name}
           </li>
         ))}
       </ul>
@@ -20,8 +20,6 @@ function Suggestions({ data = [], onSelect }) {
 }
 
 export default function AutoComplete({ data, onSelect, onClick }) {
-  const ingredients = data.map((ingredient) => ingredient.toLowerCase());
-
   // Tableau dans lequel s'ajoutent les ingrédients épinglés
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
@@ -39,8 +37,8 @@ export default function AutoComplete({ data, onSelect, onClick }) {
     setSelectedSuggestion(value);
 
     if (value.length > 2) {
-      const filterSuggestions = ingredients.filter(
-        (suggestion) => suggestion.indexOf(value.toLowerCase()) > -1
+      const filterSuggestions = data.filter(
+        (suggestion) => suggestion.name.indexOf(value.toLowerCase()) > -1
       );
       setSuggestions(filterSuggestions);
       setSuggestionsActive(true);
@@ -112,10 +110,10 @@ export default function AutoComplete({ data, onSelect, onClick }) {
         {selectedIngredients.slice(0, 3).map((ingredient) => (
           <li
             className="p-2 mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
-            key={ingredient}
+            key={ingredient.id}
           >
             {/* ingrédients épinglés */}
-            {ingredient}
+            {ingredient.name}
             <button
               type="button"
               key={ingredient.id}

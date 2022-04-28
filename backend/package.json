@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "api": "json-server db.json -p 5000 --delay 1500",
     "dev": "nodemon index.js",
     "migrate": "node migrate.js",
     "start": "node index.js",

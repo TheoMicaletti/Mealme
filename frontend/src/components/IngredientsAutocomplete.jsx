@@ -4,12 +4,15 @@ import { getIngredientsList } from "@services/api.js";
 import AutoComplete from "@components/Autocomplete";
 
 export default function IngredientsAutocomplete({ onSelect, onClick }) {
-  const [ingredients, setIngredients] = useState();
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     (async function getList() {
       setIngredients(
-        (await getIngredientsList()).map((ingredient) => ingredient.ingredients)
+        await getIngredientsList((data) => [
+          ...ingredients,
+          { id: data.id, name: data.name },
+        ])
       );
     })();
   }, []);

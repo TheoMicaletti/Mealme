@@ -22,7 +22,9 @@ export default function Home() {
         <div className="flex justify-center">
           <div className="flex mt-12">
             <Link
-              to={`/carrousel?ingredients=${selectedIngredients.join("%20")}`}
+              to={`/carrousel?ingredients=${selectedIngredients
+                .map((ingredient) => ingredient.name)
+                .join("%20")}`}
             >
               <button
                 type="button"
