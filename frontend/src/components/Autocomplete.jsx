@@ -83,14 +83,14 @@ export default function AutoComplete({ data, onSelect, onClick }) {
   return (
     // eslint-disable-next-line
     <div onClick={handleClick}>
-      <h2 className="flex justify-center pr-44 mb-4 mt-12 text-mada">
+      <h2 className="flex justify-center md:pr-44 mb-4 mt-12 text-mada">
         Choose your ingredients:{" "}
       </h2>
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center">
           <input
             type="text"
-            className="h-14 w-96 pl-10 pr-20 border-1 border-black rounded-3xl focus:shadow focus:outline-none"
+            className="max-w-[90%] h-14 w-96 pl-10 pr-20 border-1 border-black rounded-3xl focus:shadow focus:outline-none"
             placeholder="Add ingredients"
             value={selectedSuggestion}
             onChange={handleChange}
@@ -106,10 +106,10 @@ export default function AutoComplete({ data, onSelect, onClick }) {
           />
         )}
       </div>
-      <ul className="flex justify-center">
+      <ul className="flex flex-col max-w-[50%] md:max-w-[100%] m-auto justify-center md:flex-row">
         {selectedIngredients.slice(0, 3).map((ingredient) => (
           <li
-            className="p-2 mt-8 mx-2 w-24 flex justify-center items-center text-white text-center border-1 rounded-3xl z-0 bg-green-500 hover:bg-green-600 text-mada dark:bg-yellow-500 dark:hover:bg-yellow-600"
+            className="mx-2 py-1 px-1 pl-4 mt-8 text-white flex justify-between rounded-3xl z-0 bg-green-800 cursor-default text-mada dark:bg-yellow-600"
             key={ingredient.id}
           >
             {/* ingrédients épinglés */}
@@ -118,6 +118,7 @@ export default function AutoComplete({ data, onSelect, onClick }) {
               type="button"
               key={ingredient.id}
               onClick={() => handleDelete(ingredient.id)}
+              className="ml-2 font-bold text-atma hover:bg-green-400 bg-green-600 rounded-3xl px-2 dark:bg-yellow-500 hover:dark:bg-yellow-300"
             >
               x
             </button>
