@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import uuid from "react-uuid";
 
@@ -8,6 +8,12 @@ import Loader from "@components/Loader";
 import { getRecipeById } from "@services/api.js";
 
 export default function Recipes() {
+  const navigate = useNavigate();
+
+  async function handleSubmit() {
+    navigate(-1);
+  }
+
   const [queryString] = useSearchParams();
 
   const [recipe, setRecipe] = useState({});
@@ -32,6 +38,16 @@ export default function Recipes() {
 
   return (
     <div className="flex flex-col w-3/5 m-auto">
+      <button
+        type="button"
+        onClick={() => handleSubmit()}
+        className="mb-6 py-1 text-mada w-2/5 mx-auto border-2 rounded-3xl border-[#78B07C] dark:border-[#ffdb20] text-sm text-black dark:text-white text-center shadow-sm shadow-gray-400 duration-700 ease-in-out hover:scale-105"
+      >
+        <span>
+          <i className="fa-solid fa-angles-left pr-1" />
+        </span>{" "}
+        Retour à votre recherche...
+      </button>
       <img
         src={recipe.image}
         alt=""
