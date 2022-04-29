@@ -1,17 +1,16 @@
 import { useState } from "react";
 
-function Suggestions({ data = [], onSelect, onKeyDown /* cursor */ }) {
+function Suggestions({ data = [], onSelect, onKeyDown }) {
   return (
     <div className="flex justify-center">
       <ul className="flex flex-col text-lg border-1 z-10 rounded dark:text-white">
-        {data.map((suggestion /* i */) => (
+        {data.map((suggestion) => (
           // eslint-disable-next-line
           <li
             key={suggestion.id}
             className="pr-52 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
             onClick={() => onSelect(suggestion)}
             onKeyDown={() => onKeyDown(suggestion)}
-            // className={cursor === i ? "active" : null}
           >
             {suggestion.name}
           </li>
@@ -34,15 +33,13 @@ export default function AutoComplete({ data, onSelect, onClick }) {
   // Capte les caractères tapés dans la barre de recherche
   const [selectedSuggestion, setSelectedSuggestion] = useState("");
 
-  // Permet de naviguer dans la liste de suggestion grâce
-  // aux flèches du clavier
-  // const [state, setState] = useState();
+  // Décompte des ingrédients
+  const [count, setCount] = useState(3);
 
   /**
    * Renvoie si la suggestion sélectionnée fait partie de la
    * liste des suggestions existantes
    */
-
   const handleChange = (e) => {
     const { value } = e.target;
     setSelectedSuggestion(value);
@@ -71,6 +68,8 @@ export default function AutoComplete({ data, onSelect, onClick }) {
     const newSelectedIngredients = [...selectedIngredients, value];
     setSelectedIngredients(newSelectedIngredients);
     onSelect(newSelectedIngredients);
+
+    setCount((oldCount) => oldCount - 1);
   };
 
   /** au clic en dehors de la liste de suggestions,
@@ -89,33 +88,15 @@ export default function AutoComplete({ data, onSelect, onClick }) {
     });
     setSelectedIngredients(deletableIngredient);
     onClick(deletableIngredient);
+    setCount((oldCount) => oldCount + 1);
   };
-
-  /** possibilité de naviguer au travers
-   * de la liste de suggestions grâces aux
-   * arrow keys (flèches haut et bas)
-   */
-  // const handleKeyDown = (e) => {
-  //   state = {
-  //     cursor: 0,
-  //     result: [],
-  //   };
-  //   if (e.keyCode === 38 && cursor > 0) {
-  //     setState((prevState) => ({
-  //       cursor: prevState.cursor - 1,
-  //     }));
-  //   } else if (e.keyCode === 40 && cursor < result.length - 1) {
-  //     setState((prevState) => ({
-  //       cursor: prevState.cursor + 1,
-  //     }));
-  //   }
-  // };
 
   return (
     // eslint-disable-next-line
     <div onClick={handleClick}>
       <h2 className="flex justify-center md:pr-44 mb-4 mt-12 text-mada text-xl text-gray-800 dark:text-white">
-        Choose your ingredients:{" "}
+        <p className="mr-1">Choose your ingredients: </p>
+        <div type="button">({count}) left</div>
       </h2>
       <form>
         <div className="flex justify-center">
@@ -131,11 +112,7 @@ export default function AutoComplete({ data, onSelect, onClick }) {
       </form>
       <div>
         {suggestionsActive && (
-          <Suggestions
-            data={suggestions}
-            onSelect={handleSuggestionChange}
-            // onKeyDown={handleKeyDown}
-          />
+          <Suggestions data={suggestions} onSelect={handleSuggestionChange} />
         )}
       </div>
       <ul className="flex flex-col max-w-[50%] md:max-w-[100%] m-auto justify-center md:flex-row">

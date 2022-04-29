@@ -10,7 +10,7 @@ class AbstractManager {
     ]);
   }
 
-  findAll(params = { orderBy: { field: "name", order: "DESC" } }) {
+  findAll(params = { orderBy: { field: "name", order: "ASC" } }) {
     return this.connection.query(
       `select * from  ${this.table} ORDER BY ${params.orderBy.field} ${params.orderBy.order}`
     );
