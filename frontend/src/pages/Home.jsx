@@ -34,13 +34,32 @@ export default function Home() {
           cook!
         </span>
       </h1>
-      <div className="my-20 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-2 dark:border-[#ffdb20] border-[#8ddc93] bg-[#8ddc93] dark:bg-[#ffdb20] drop-shadow-lg">
+      <div className="my-20 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
         <IngredientsAutocomplete
           onSelect={setSelectedIngredients}
           onClick={setSelectedIngredients}
         />
         <div className="flex flex-col justify-center">
-          <div className="flex justify-center mt-12">
+          <div className="flex flex-row mx-auto mt-8">
+            {dietLabels.map((label) => (
+              <div key={label.id} className="flex my-2 mx-4 justify-start ">
+                <input
+                  className="form-check-input appearance-none h-6 w-6 mx-2 border border-gray-300 rounded-lg bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                  type="checkbox"
+                  value={label.name}
+                  id="diet-checkbox"
+                  onChange={handleLabelChange}
+                />
+                <label
+                  className="form-check-label text-black capitalize text-mada dark:text-white"
+                  htmlFor="diet-checkbox"
+                >
+                  {label.name}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-8">
             <Link
               to={`/carrousel?ingredients=${selectedIngredients
                 .map((ingredient) => ingredient.name)
@@ -51,33 +70,14 @@ export default function Home() {
               <button
                 type="button"
                 disabled={selectedIngredients.length === 0}
-                className="w-40 z-10 mb-8 text-center bg-white dark:bg-gray-800 text-2xl dark:text-white p-1 rounded-3xl text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300"
+                className="w-50 z-10 mb-4 border-2 border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-3xl text-white p-1.5 rounded-3xl text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
               >
                 Let&apos;s{" "}
-                <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold pointer-events-none">
+                <span className="text-white text-atma dark:text-zinc-800 font-bold pointer-events-none">
                   eat!
                 </span>
               </button>
             </Link>
-          </div>
-          <div className="flex flex-col md:flex-row mx-auto">
-            {dietLabels.map((label) => (
-              <div key={label.id} className="flex my-2 md:mx-6 justify-start">
-                <input
-                  className="form-check-input appearance-none h-6 w-6 mx-2 border border-gray-300 rounded-lg bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center bg-contain float-left cursor-pointer"
-                  type="checkbox"
-                  value={label.name}
-                  id="diet-checkbox"
-                  onChange={handleLabelChange}
-                />
-                <label
-                  className="form-check-label text-black capitalize font-bold"
-                  htmlFor="diet-checkbox"
-                >
-                  {label.name}
-                </label>
-              </div>
-            ))}
           </div>
         </div>
       </div>
