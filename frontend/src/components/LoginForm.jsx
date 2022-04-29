@@ -40,12 +40,12 @@ function LoginForm({ isShowLogin }) {
             <input
               type="submit"
               value="LOGIN!"
-              className="login-btn bg-green-400 dark:bg-yellow-400 p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
+              className="login-btn bg-green-400 dark:bg-yellow-400 p-1 px-2 rounded-3xl mt-2 text-atma font-bold"
             />
             <input
               type="submit"
               value="SIGN IN!"
-              className="login-btn border-1 border-green-400 dark:border-yellow-400 text-green-400 dark:text-yellow-400 p-1 px-2 rounded-3xl ml-2 mt-3 text-atma font-bold"
+              className="login-btn border-1 border-green-400 dark:border-yellow-400 text-green-400 dark:text-yellow-400 p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
             />
           </form>
         </div>
