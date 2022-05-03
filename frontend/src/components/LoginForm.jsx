@@ -23,7 +23,7 @@ function LoginForm({ isShowLogin }) {
     <div
       className={`${
         !isShowLogin ? "active" : ""
-      } show z-50 border-green-400 dark:border-yellow-400 border-2 rounded-3xl bg-white dark:bg-gray-800`}
+      } show z-50 border-[#8ddc93] dark:border-[#ffdb20] border-2 rounded-3xl bg-zinc-50 dark:bg-gray-700`}
     >
       <div className="login-form">
         <div className="form-box solid">
@@ -40,7 +40,7 @@ function LoginForm({ isShowLogin }) {
               <input
                 type="text"
                 name="username"
-                className="login-box text-mada border-1 hover:border-green-400 dark:hover:border-yellow-400"
+                className="login-box text-mada border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
                 value={username}
                 onChange={({ target }) => setUsername(target.value)}
               />
@@ -55,7 +55,7 @@ function LoginForm({ isShowLogin }) {
               <input
                 type="password"
                 name="password"
-                className="login-box text-mada border-1 hover:border-green-400 dark:hover:border-yellow-400"
+                className="login-box text-mada border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
                 value={password}
                 onChange={({ target }) => setPassword(target.value)}
               />
@@ -64,13 +64,13 @@ function LoginForm({ isShowLogin }) {
             <input
               type="submit"
               value="LOGIN!"
-              className="login-btn bg-green-400 dark:bg-yellow-400 p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
+              className="login-btn bg-[#8ddc93] dark:bg-[#ffdb20] p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
               onClick={onSubmit}
             />
             <input
               type="submit"
               value="SIGN IN!"
-              className="login-btn border-1 border-green-400 dark:border-yellow-400 text-green-400 dark:text-yellow-400 p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
+              className="login-btn border-1 border-[#8ddc93] ml-6 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
             />
           </form>
         </div>

@@ -5,8 +5,8 @@ export default function Loader() {
   return (
     <div className="flex flex-col justify-center items-center w-full min-h-screen">
       <img src={LoaderGIF} alt="Loading..." />
-      <p className="mt-8 text-mada text-2xl dark:text-white">
-        Kitchen is loading...
+      <p className="mt-8 text-mada text-2xl dark:text-white text-gray-800">
+        <span className="text-atma font-bold">Kitchen</span> is loading...
       </p>
     </div>
   );

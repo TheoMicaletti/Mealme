@@ -8,6 +8,11 @@ function Header({ handleLoginClick, currentUser }) {
     handleLoginClick();
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  };
+
   return (
     <div>
       <div className="fixed top-0 left-0 right-0 w-100% z-40">
@@ -25,22 +30,47 @@ function Header({ handleLoginClick, currentUser }) {
           />
         </Link>
       </div>
-      <div className="flex flex-row z-40 fixed top-4 right-4">
-        {currentUser.length > 0 ? `Welcome ${currentUser}` : ""}
-        <button
-          id="login"
-          type="button"
-          onClick={handleClick}
-          className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl bg-[#8ddc93] dark:bg-[#ffdb20] font-bold drop-shadow-md"
-        >
-          Login
-          <span className="ml-2 bg-gray-800 rounded-full px-2 py-1.5 inline dark:hidden">
-            👩
+
+      <div className="z-40 fixed">
+        <div className="fixed text-mada top-3 right-40 py-3 pl-4 pr-2 text-xl text-gray-800 dark:text-white">
+          {currentUser.length > 0 ? `Welcome` : ""}{" "}
+          <span className="text-atma font-bold ml-1 capitalize">
+            {currentUser.length > 0 ? `${currentUser}!` : ""}
           </span>
-          <span className="ml-2 bg-zinc-800 rounded-full px-2 py-1.5 hidden dark:inline">
-            👱‍♂️
-          </span>
-        </button>
+        </div>
+        {!currentUser && (
+          <div className="fixed text-mada top-4 right-4">
+            <button
+              id="login"
+              type="button"
+              onClick={handleClick}
+              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-white bg-[#8ddc93] dark:bg-[#ffdb20] font-bold drop-shadow-md"
+            >
+              Login
+              <span className="ml-2 bg-gray-800 rounded-full px-2 py-1.5 inline dark:hidden">
+                👩
+              </span>
+              <span className="ml-2 bg-zinc-800 rounded-full px-2 py-1.5 hidden dark:inline">
+                👱‍♂️
+              </span>
+            </button>
+          </div>
+        )}
+        {currentUser && (
+          <div className="fixed text-mada top-4 right-4">
+            <button
+              id="logout"
+              type="button"
+              onClick={handleSubmit}
+              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-red-700 bg-red-400 font-bold drop-shadow-md"
+            >
+              Logout
+              <span className="ml-2 bg-red-800 rounded-full pl-1 pr-2 py-1.5 inline">
+                👋
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

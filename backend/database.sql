@@ -38,9 +38,14 @@ CREATE TABLE `ingredients` (
 
 CREATE TABLE `users` (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL,
+  `username` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `users` (`username`, `password`) VALUES
+('theo', 'theo'),
+('matthieu', 'matthieu'),
+('marie', 'marie'),
+('simon', 'simon');
 
 --
 -- Déchargement des données de la table `ingredients`

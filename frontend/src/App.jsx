@@ -43,7 +43,9 @@ function App() {
             handleLoginClick={handleLoginClick}
             currentUser={currentUser}
           />
-          <LoginForm isShowLogin={isShowLogin} />
+
+          {!currentUser && <LoginForm isShowLogin={isShowLogin} />}
+
           <main className="mt-36">
             {loader ? (
               <Loader />
