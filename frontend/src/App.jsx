@@ -1,5 +1,6 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+
 import Header from "@components/Header";
 import Carrousel from "@pages/Carrousel";
 import Footer from "@components/Footer";
@@ -9,14 +10,23 @@ import Legal from "@pages/Legal";
 import Loader from "@components/Loader";
 import Recipe from "@pages/Recipe";
 import LoginForm from "@components/LoginForm";
+
+import LoginContext from "@contexts/LoginContext";
+
 import "./App.css";
 
 function App() {
   const [loader, setLoader] = useState(true);
   const [isShowLogin, setIsShowLogin] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState("");
+
   const handleLoginClick = () => {
     setIsShowLogin(() => !isShowLogin);
+  };
+
+  const getLoginContext = () => {
+    return { currentUser, setCurrentUser };
   };
 
   useEffect(() => {
@@ -28,22 +38,27 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header handleLoginClick={handleLoginClick} />
-        <LoginForm isShowLogin={isShowLogin} />
-        <main className="mt-36">
-          {loader ? (
-            <Loader />
-          ) : (
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/carrousel" element={<Carrousel />} />
-              <Route path="/recipe" element={<Recipe />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legal" element={<Legal />} />
-            </Routes>
-          )}
-        </main>
-        <Footer />
+        <LoginContext.Provider value={getLoginContext()}>
+          <Header
+            handleLoginClick={handleLoginClick}
+            currentUser={currentUser}
+          />
+          <LoginForm isShowLogin={isShowLogin} />
+          <main className="mt-36">
+            {loader ? (
+              <Loader />
+            ) : (
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/carrousel" element={<Carrousel />} />
+                <Route path="/recipe" element={<Recipe />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/legal" element={<Legal />} />
+              </Routes>
+            )}
+          </main>
+          <Footer />
+        </LoginContext.Provider>
       </BrowserRouter>
     </div>
   );

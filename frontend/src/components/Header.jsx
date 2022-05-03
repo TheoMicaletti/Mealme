@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Image from "@assets/logoName.png";
 import DarkImage from "@assets/darkLogoName.png";
-import LoginForm from "./LoginForm";
 
-function Header({ handleLoginClick }) {
+function Header({ handleLoginClick, currentUser }) {
   const handleClick = () => {
     handleLoginClick();
   };
@@ -26,28 +25,23 @@ function Header({ handleLoginClick }) {
           />
         </Link>
       </div>
-      {!LoginForm ? (
-        <div>
-          <p>Salut</p>
-        </div>
-      ) : (
-        <div className="flex flex-row z-40 fixed top-4 right-4">
-          <button
-            id="login"
-            type="button"
-            onClick={handleClick}
-            className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl bg-[#8ddc93] dark:bg-[#ffdb20] font-bold drop-shadow-md"
-          >
-            Login
-            <span className="ml-2 bg-gray-800 rounded-full px-2 py-1.5 inline dark:hidden">
-              👩
-            </span>
-            <span className="ml-2 bg-zinc-800 rounded-full px-2 py-1.5 hidden dark:inline">
-              👱‍♂️
-            </span>
-          </button>
-        </div>
-      )}
+      <div className="flex flex-row z-40 fixed top-4 right-4">
+        {currentUser.length > 0 ? `Welcome ${currentUser}` : ""}
+        <button
+          id="login"
+          type="button"
+          onClick={handleClick}
+          className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl bg-[#8ddc93] dark:bg-[#ffdb20] font-bold drop-shadow-md"
+        >
+          Login
+          <span className="ml-2 bg-gray-800 rounded-full px-2 py-1.5 inline dark:hidden">
+            👩
+          </span>
+          <span className="ml-2 bg-zinc-800 rounded-full px-2 py-1.5 hidden dark:inline">
+            👱‍♂️
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

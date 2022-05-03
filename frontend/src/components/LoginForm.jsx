@@ -1,4 +1,24 @@
+import { login } from "@services/api";
+import { useState, useContext } from "react";
+import LoginContext from "@contexts/LoginContext";
+
 function LoginForm({ isShowLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { setCurrentUser } = useContext(LoginContext);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = await login({ username, password });
+      setCurrentUser(username);
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   return (
     <div
       className={`${
@@ -21,6 +41,8 @@ function LoginForm({ isShowLogin }) {
                 type="text"
                 name="username"
                 className="login-box text-mada border-1 hover:border-green-400 dark:hover:border-yellow-400"
+                value={username}
+                onChange={({ target }) => setUsername(target.value)}
               />
               <br />
             </label>
@@ -34,13 +56,16 @@ function LoginForm({ isShowLogin }) {
                 type="password"
                 name="password"
                 className="login-box text-mada border-1 hover:border-green-400 dark:hover:border-yellow-400"
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
               />
               <br />
             </label>
             <input
               type="submit"
               value="LOGIN!"
-              className="login-btn bg-green-400 dark:bg-yellow-400 p-1 px-2 rounded-3xl mt-2 text-atma font-bold"
+              className="login-btn bg-green-400 dark:bg-yellow-400 p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
+              onClick={onSubmit}
             />
             <input
               type="submit"

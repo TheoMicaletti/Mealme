@@ -33,6 +33,16 @@ CREATE TABLE `ingredients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Déchargement des données de la table `ingredients`
 --
 

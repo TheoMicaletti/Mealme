@@ -23,8 +23,12 @@ export const getRecipeById = async (id) => {
 };
 
 // Appel ingredients database
-const DB_URL = "http://localhost:5000/ingredients/";
+const DB_URL = "http://localhost:5000";
 
 export const getIngredientsList = async () => {
-  return (await axios.get(DB_URL)).data;
+  return (await axios.get(`${DB_URL}/ingredients`)).data;
+};
+
+export const login = async (user) => {
+  return (await axios.post(`${DB_URL}/users`, { user })).data;
 };

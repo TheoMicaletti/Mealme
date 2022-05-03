@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { getRecipesByIngredients } from "@services/api.js";
 import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
+import noRecipeFoundWhite from "@assets/noRecipeFound_white.png";
 import SkeletonArticle from "../skeleton/SkeletonArticle";
 
 export default function Carrousel() {
@@ -47,7 +48,16 @@ export default function Carrousel() {
   if (mealRecipes.length === 0) {
     return (
       <div className="max-w-xs mx-auto">
-        <img src={noRecipeFoundBlack} alt="No recipes found" className="" />
+        <img
+          src={noRecipeFoundBlack}
+          alt="No recipes found"
+          className="block dark:hidden"
+        />
+        <img
+          src={noRecipeFoundWhite}
+          alt="No recipes found"
+          className="hidden dark:block"
+        />
         <h3 className="text-center text-mada text-4xl dark:text-white mb-36">
           No <span className="text-gradient text-atma font-bold">Recipes</span>{" "}
           Found !
