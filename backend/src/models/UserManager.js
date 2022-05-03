@@ -10,11 +10,13 @@ class UserManager extends AbstractManager {
     );
   }
 
-  insert(user) {
-    return this.connection.query(
+  async insert(username, password) {
+    const [result] = await this.connection.query(
       `insert into ${UserManager.table} (username, password) values (?, ?)`,
-      [user.username, user.password]
+      [username, password]
     );
+
+    return { id: result.insertId, username };
   }
 
   update(user) {

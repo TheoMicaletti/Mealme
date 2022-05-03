@@ -1,4 +1,4 @@
-import { login } from "@services/api";
+import { login, signin } from "@services/api";
 import { useState, useContext } from "react";
 import LoginContext from "@contexts/LoginContext";
 
@@ -8,12 +8,22 @@ function LoginForm({ isShowLogin }) {
 
   const { setCurrentUser } = useContext(LoginContext);
 
-  const onSubmit = async (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
 
     try {
       const user = await login({ username, password });
       setCurrentUser(username);
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  const onSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = await signin({ username, password });
     } catch (err) {
       alert(err.message);
     }
@@ -65,12 +75,13 @@ function LoginForm({ isShowLogin }) {
               type="submit"
               value="LOGIN!"
               className="login-btn bg-[#8ddc93] dark:bg-[#ffdb20] p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
-              onClick={onSubmit}
+              onClick={onLogin}
             />
             <input
               type="submit"
               value="SIGN IN!"
               className="login-btn border-1 border-[#8ddc93] ml-6 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
+              onClick={onSignIn}
             />
           </form>
         </div>

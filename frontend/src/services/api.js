@@ -29,6 +29,11 @@ export const getIngredientsList = async () => {
   return (await axios.get(`${DB_URL}/ingredients`)).data;
 };
 
+// Appel users database
 export const login = async (user) => {
-  return (await axios.post(`${DB_URL}/users`, { user })).data;
+  return (await axios.post(`${DB_URL}/login`, { user })).data;
+};
+
+export const signin = async (user) => {
+  return (await axios.post(`${DB_URL}/signin`, { user })).data;
 };

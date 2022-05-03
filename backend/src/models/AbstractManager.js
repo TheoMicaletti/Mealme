@@ -16,6 +16,12 @@ class AbstractManager {
     );
   }
 
+  findAllUsers(params = { orderBy: { field: "username", order: "ASC" } }) {
+    return this.connection.query(
+      `select * from  ${this.table} ORDER BY ${params.orderBy.field} ${params.orderBy.order}`
+    );
+  }
+
   delete(id) {
     return this.connection.query(`delete from ${this.table} where id = ?`, [
       id,

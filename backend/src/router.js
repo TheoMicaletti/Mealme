@@ -11,6 +11,7 @@ router.post("/ingredients", IngredientController.add);
 router.delete("/ingredients/:id", IngredientController.delete);
 
 router.get("/users", UserController.browse);
-router.post("/users", UserController.login);
+router.post("/login", UserController.login);
+router.post("/signin", UserController.sign);
 
 module.exports = router;
