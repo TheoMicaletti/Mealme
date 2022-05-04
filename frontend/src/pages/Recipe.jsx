@@ -46,7 +46,7 @@ export default function Recipes() {
         <span>
           <i className="fa-solid fa-angles-left pr-1" />
         </span>{" "}
-        Retour à votre recherche...
+        Back...
       </button>
       <img
         src={recipe.image}

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
+
 import { getRecipesByIngredients } from "@services/api.js";
+
 import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
 import FavoriteRecipes from "@components/FavoriteRecipes";
 import noRecipeFoundWhite from "@assets/noRecipeFound_white.png";
+
 import SkeletonArticle from "../skeleton/SkeletonArticle";
+
+import "../App.css";
 
 export default function Carrousel() {
   // Hook permettant de récupérer les paramètre de la query string (?string1=ingrédient1&string2=ingrédient2...)
-
   const [queryString] = useSearchParams();
 
   const [mealRecipes, setMealRecipes] = useState([]);
@@ -110,9 +114,9 @@ export default function Carrousel() {
       <div className="mx-auto my-auto w-full h-full max-w-sm max-h-sm">
         <div
           id="carouselExampleControls"
-          className="carousel slide relative"
-          data-bs-ride="carousel"
+          className="carousel relative slide carousel-dark dark:carousel-light"
           data-carousel="static"
+          data-bs-interval="false"
         >
           <div className="carousel-inner relative w-full overflow-hidden rounded-[80px]">
             <div className="carousel-item active relative float-left w-full p-5 duration-700 ease-in-out hover:scale-105">
@@ -170,7 +174,7 @@ export default function Carrousel() {
             ))}
           </div>
           <button
-            className="carousel-control-prev absolute lg:top-60 top-48 md:-left-1/4 -left-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="absolute top-48 md:-left-1/4 -left-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
@@ -183,7 +187,7 @@ export default function Carrousel() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next absolute lg:top-60 top-48 md:-right-1/4 -right-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
+            className="absolute top-48 md:-right-1/4 -right-9 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
