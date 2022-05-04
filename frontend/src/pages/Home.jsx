@@ -34,6 +34,14 @@ export default function Home() {
     });
   }
 
+  function handleScroll2() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <div className="with-bg h-full bg-bgwhite dark:bg-bgdark">
       <h1 className="pt-32 z-10 text-6xl text-4xl dark:text-white text-center text-gray-800 text-mada">
@@ -122,44 +130,55 @@ export default function Home() {
         </ul>
       </div>
       <div className="w-[90%] md:w-[80%] mx-auto text-mada mb-24 dark:text-white text-gray-800">
-        <h1 className="text-atma mb-12 font-bold text-3xl">
-          How does it work?
-        </h1>
+        <h1 className="text-atma mb-8 font-bold text-3xl">How does it work?</h1>
         <ul className="flex justify-around md:flex-row flex-col text-center text-xl">
-          <li className="md:mx-8 my-4">
-            <p className="text-3xl my-2">👀 😋 ❄️</p>
+          <li className="md:mx-8 my-8">
+            <p className="text-5xl my-2 w-40 m-auto">👀 😋 ❄️</p>
             <p>
-              Open <span className="font-bold"> your fridge</span> for
+              Go open <span className="font-bold"> your fridge</span> for
               ingredients...
             </p>
-            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-8 m-auto text-gray-800">
-              1
+            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-24 m-auto text-gray-800">
+              first...
             </h2>
           </li>
-          <li className="md:mx-8 my-4">
-            <p className="text-3xl my-2">🥕 🍗 🧅</p>
+          <li className="md:mx-8 my-8">
+            <p className="text-5xl my-2 w-40 m-auto">🥕 🍗 🧅</p>
             <p>
               <span className="font-bold">Add ingredients</span> you have in our
               search-bar
             </p>
-            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-8 m-auto text-gray-800">
-              2
+            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-24 m-auto text-gray-800">
+              then
             </h2>
           </li>
-          <li className="md:mx-8 my-4">
-            <p className="text-3xl my-2">🥗 🍝 🌮</p>
+          <li className="md:mx-8 my-8">
+            <p className="text-5xl my-2 w-40 m-auto">🥗 🍝 🌮</p>
             <p>
               <span className="font-bold">Click "Let's eat!"</span>, and enjoy
               some recipes!
             </p>
-            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-8 m-auto text-gray-800">
-              3
+            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-28 m-auto text-gray-800">
+              ...finally
             </h2>
           </li>
         </ul>
-        <h1 className="mt-12 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-5xl">
-          Enjoy! 😄
-        </h1>
+        <div>
+          <h1 className="mt-16 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-5xl">
+            Enjoy! 😄
+          </h1>
+          <div className="mt-24 text-center text-atma dark:text-white text-gray-800 text-xl">
+            <p className="font-bold">Go up!</p>
+            <p className="text-mada text-sm">Click on the banana!</p>
+          </div>
+          <button
+            className="arrow bounce text-atma font-bold text-6xl dark:text-white"
+            type="button"
+            onClick={handleScroll2}
+          >
+            🍌
+          </button>
+        </div>
       </div>
     </div>
   );

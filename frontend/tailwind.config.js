@@ -24,7 +24,7 @@ module.exports = {
       },
       colors: {
         bgwhite: "rgba(255,255,255,0.90)",
-        bgdark: "rgba(000,000,000,0.86)",
+        bgdark: "rgba(000,000,000,0.80)",
       },
     },
   },
