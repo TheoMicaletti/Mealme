@@ -16,23 +16,23 @@ function Footer() {
 
   return (
     <div>
-      <div className="fixed text-mada mt-auto bottom-0 inset-x-0 p-9 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-100%" />
-      <footer className="fixed bottom-0 mt-auto text-mada inset-x-0 p-3 bg-gray-800 dark:bg-zinc-800 w-100% flex items-center justify-between">
+      <div className="h-full text-mada p-1 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-100%" />
+      <footer className="h-full text-mada p-3 bg-gray-800 dark:bg-zinc-800 w-100% flex items-center justify-between">
         <span className="flex items-center text-white">
           {" "}
           <img className="w-8 mr-3" src={Image} alt="logo" /> ©2022 Mealme™
         </span>
-        <ul className="text-sm text-white text-right">
+        <ul className="absolute text-sm text-white text-right right-20">
           <li>
             <Link to="/legal">
-              <div className="mr-16 underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
+              <div className="underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
                 Legal
               </div>
             </Link>
           </li>
           <li>
             <Link to="/contact">
-              <div className="mr-16 underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
+              <div className="underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
                 Contact
               </div>
             </Link>
@@ -41,7 +41,7 @@ function Footer() {
         <button
           id="theme-toggle"
           type="button"
-          className="fixed transition-all duration-300 border-solid border-2 border-[#ffdb20]  dark:border-[#8ddc93] bottom-3 right-4 text-gray-200 bg-zinc-700 hover:bg-gray-800 dark:hover:bg-gray-900 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5"
+          className="transition-all duration-300 border-solid border-2 border-[#ffdb20]  dark:border-[#8ddc93] bottom-3 right-4 text-gray-200 bg-zinc-700 hover:bg-gray-800 dark:hover:bg-gray-900 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5"
           onClick={onToggleDark}
         >
           <svg

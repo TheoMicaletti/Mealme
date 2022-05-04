@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Legal() {
   return (
-    <div className="flex flex-col justify-center items-align pt-36 text-mada">
+    <div className="flex flex-col h-full justify-center items-align pt-36 text-mada">
       <h1 className="mb-24 ml-auto mr-auto text-atma font-bold text-3xl text-[#8ddc93] dark:text-[#ffdb20]">
         Mentions Légales
       </h1>

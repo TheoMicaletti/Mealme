@@ -46,7 +46,7 @@ function App() {
 
           {!currentUser && <LoginForm isShowLogin={isShowLogin} />}
 
-          <main className="mt-36">
+          <main className="h-full">
             {loader ? (
               <Loader />
             ) : (

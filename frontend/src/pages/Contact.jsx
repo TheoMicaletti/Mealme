@@ -28,7 +28,7 @@ export default function Contact() {
   };
 
   return (
-    <div>
+    <div className="h-full">
       <form onSubmit={handleSubmit(onSubmit)}>
         <section className="text-gray-700 body-font">
           <div className="container px-5 py-20 mx-auto">

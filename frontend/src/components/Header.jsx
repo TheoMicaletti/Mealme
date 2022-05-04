@@ -44,7 +44,7 @@ function Header({ handleLoginClick, currentUser }) {
               id="login"
               type="button"
               onClick={handleClick}
-              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-white bg-[#8ddc93] dark:bg-[#ffdb20] font-bold drop-shadow-md"
+              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-white bg-[#8ddc93] dark:bg-[#ffdb20] drop-shadow-md"
             >
               Login
               <span className="ml-2 bg-gray-800 rounded-full px-2 py-1.5 inline dark:hidden">
@@ -62,7 +62,7 @@ function Header({ handleLoginClick, currentUser }) {
               id="logout"
               type="button"
               onClick={handleSubmit}
-              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-red-700 bg-red-400 font-bold drop-shadow-md"
+              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-red-700 bg-red-400 drop-shadow-md"
             >
               Logout
               <span className="ml-2 bg-red-800 rounded-full pl-1 pr-2 py-1.5 inline">

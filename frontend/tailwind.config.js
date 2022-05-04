@@ -22,6 +22,10 @@ module.exports = {
       minWidth: {
         "90%": "90%",
       },
+      colors: {
+        bgwhite: "rgba(255,255,255,0.90)",
+        bgdark: "rgba(000,000,000,0.86)",
+      },
     },
   },
   plugins: [require("tw-elements/dist/plugin")],
