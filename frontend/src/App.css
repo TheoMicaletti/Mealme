@@ -68,3 +68,7 @@ html.dark body {
   transform: translateY(-100px) scale(0);
   opacity: 0;
 }
+.Require::before {
+  display: inline;
+  content: "⚠ ";
+}
