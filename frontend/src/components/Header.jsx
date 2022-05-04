@@ -1,9 +1,13 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
+
+import LoginContext from "@contexts/LoginContext";
 import Image from "@assets/logoName.png";
 import DarkImage from "@assets/darkLogoName.png";
 
-function Header({ handleLoginClick, currentUser }) {
+function Header({ handleLoginClick }) {
+  const { currentUser } = useContext(LoginContext);
+
   const handleClick = () => {
     handleLoginClick();
   };
@@ -33,9 +37,9 @@ function Header({ handleLoginClick, currentUser }) {
 
       <div className="z-40 fixed">
         <div className="fixed text-mada top-3 right-40 py-3 pl-4 pr-2 text-xl text-gray-800 dark:text-white">
-          {currentUser.length > 0 ? `Welcome` : ""}{" "}
+          {currentUser ? `Welcome` : ""}{" "}
           <span className="text-atma font-bold ml-1 capitalize">
-            {currentUser.length > 0 ? `${currentUser}!` : ""}
+            {currentUser?.username ?? ""}
           </span>
         </div>
         {!currentUser && (

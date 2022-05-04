@@ -19,7 +19,12 @@ class UserController {
     const [result] = await models.users.findByUserPassword(username, password);
 
     if (result.length) {
-      res.send(result);
+      const user = result[0];
+
+      // Ajout des recettes favorites au profil de l'utilisateur
+      const [favorites] = await models.favorites.findByUser(user.id);
+      user.favorites = favorites;
+      res.send(user);
     } else {
       res.status(401).send("Bad credentials !");
     }

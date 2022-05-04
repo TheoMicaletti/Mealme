@@ -5,7 +5,7 @@ class UserManager extends AbstractManager {
 
   findByUserPassword(username, password) {
     return this.connection.query(
-      `SELECT * FROM ${UserManager.table} WHERE username = ? AND password = ?`,
+      `SELECT id, username FROM ${UserManager.table} WHERE username = ? AND password = ?`,
       [username, password]
     );
   }

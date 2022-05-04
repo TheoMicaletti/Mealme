@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 
-import { getRecipesByIngredients } from "@services/api.js";
+import {
+  addToFavorites,
+  removeFavorites,
+  getRecipesByIngredients,
+} from "@services/api.js";
 
-import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
 import FavoriteRecipes from "@components/FavoriteRecipes";
-import noRecipeFoundWhite from "@assets/noRecipeFound_white.png";
+import LoginContext from "@contexts/LoginContext";
 
+import noRecipeFoundWhite from "@assets/noRecipeFound_white.png";
+import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
 import SkeletonArticle from "../skeleton/SkeletonArticle";
 
 import "../App.css";
 
 export default function Carrousel() {
+  const { currentUser, setCurrentUser } = useContext(LoginContext);
   // Hook permettant de récupérer les paramètre de la query string (?string1=ingrédient1&string2=ingrédient2...)
   const [queryString] = useSearchParams();
 
   const [mealRecipes, setMealRecipes] = useState([]);
   const [firstRecipe, setFirstRecipe] = useState();
   const [isRecipesLoading, setIsRecipesLoading] = useState(true);
-
-  // Permet d'ajouter ou d'enlever une recette de la liste des favoris
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
   useEffect(() => {
     (async function getRecipe() {
@@ -89,19 +92,30 @@ export default function Carrousel() {
   const handleClick = (recipe) => {
     // eslint-disable-next-line
     if (isFavorite(recipe)) {
-      setFavoriteRecipes(
-        favoriteRecipes.filter((r) => r.recipe.uri !== recipe.recipe.uri)
-      );
+      removeFavorites(currentUser.id, recipe.recipe.uri);
+      setCurrentUser({
+        ...currentUser,
+        favorites: currentUser.favorites.filter(
+          (favorite) => favorite.name !== recipe.recipe.uri
+        ),
+      });
+
+      // appeler removeFromFavorite de l'api
     } else {
-      setFavoriteRecipes([...favoriteRecipes, recipe]);
+      addToFavorites(currentUser.id, recipe.recipe.uri);
+
+      setCurrentUser({
+        ...currentUser,
+        favorites: [...currentUser.favorites, { name: recipe.recipe.uri }],
+      });
     }
   };
 
   const isFavorite = (recipe) => {
-    // double negation
     return (
-      favoriteRecipes.find((r) => r.recipe.uri === recipe.recipe.uri) !==
-      undefined
+      currentUser?.favorites?.find(
+        (favorite) => favorite.name === recipe.recipe.uri
+      ) !== undefined
     );
   };
 
@@ -134,13 +148,16 @@ export default function Carrousel() {
                 <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
                   {firstRecipe.recipe.cuisineType}
                 </p>
-                <div className="favorite">
-                  <FavoriteRecipes
-                    isFavorite={isFavorite(firstRecipe)}
-                    // eslint-disable-next-line
-                    handleClick={() => handleClick(firstRecipe)}
-                  />
-                </div>
+
+                {currentUser && (
+                  <div className="favorite">
+                    <FavoriteRecipes
+                      isFavorite={isFavorite(firstRecipe)}
+                      // eslint-disable-next-line
+                      handleClick={() => handleClick(firstRecipe)}
+                    />
+                  </div>
+                )}
               </div>
             </div>
             {mealRecipes.slice(0, 9).map((item) => (

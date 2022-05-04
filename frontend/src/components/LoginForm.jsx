@@ -1,5 +1,6 @@
-import { login, signin } from "@services/api";
 import { useState, useContext } from "react";
+
+import { login, signin } from "@services/api";
 import LoginContext from "@contexts/LoginContext";
 
 function LoginForm({ isShowLogin }) {
@@ -12,8 +13,7 @@ function LoginForm({ isShowLogin }) {
     e.preventDefault();
 
     try {
-      const user = await login({ username, password });
-      setCurrentUser(username);
+      setCurrentUser(await login({ username, password }));
     } catch (err) {
       alert(err.message);
     }

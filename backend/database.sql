@@ -48,6 +48,15 @@ INSERT INTO `users` (`username`, `password`) VALUES
 ('simon', 'simon');
 
 --
+-- Structure de la table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Déchargement des données de la table `ingredients`
 --
 

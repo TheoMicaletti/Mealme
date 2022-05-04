@@ -37,3 +37,12 @@ export const login = async (user) => {
 export const signin = async (user) => {
   return (await axios.post(`${DB_URL}/signin`, { user })).data;
 };
+
+// Appel favorites database
+export const addToFavorites = async (id, name) => {
+  return (await axios.post(`${DB_URL}/favorites`, { id, name })).data;
+};
+
+export const removeFavorites = async (id) => {
+  return (await axios.delete(`${DB_URL}/favorites/${id}`)).data;
+};
