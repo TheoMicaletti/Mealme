@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Suggestions({ data = [], onSelect, onKeyDown }) {
+function Suggestions({ data = [], onSelect }) {
   return (
     <div className="flex justify-center">
       <ul className="flex flex-col text-lg border-1 z-10 rounded dark:text-white">
@@ -10,7 +10,6 @@ function Suggestions({ data = [], onSelect, onKeyDown }) {
             key={suggestion.id}
             className="pr-52 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
             onClick={() => onSelect(suggestion)}
-            onKeyDown={() => onKeyDown(suggestion)}
           >
             {suggestion.name}
           </li>

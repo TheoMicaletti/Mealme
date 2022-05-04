@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { getRecipesByIngredients } from "@services/api.js";
 import noRecipeFoundBlack from "@assets/noRecipeFound_black.png";
+import FavoriteRecipes from "@components/FavoriteRecipes";
 import noRecipeFoundWhite from "@assets/noRecipeFound_white.png";
 import SkeletonArticle from "../skeleton/SkeletonArticle";
 
@@ -13,6 +14,9 @@ export default function Carrousel() {
   const [mealRecipes, setMealRecipes] = useState([]);
   const [firstRecipe, setFirstRecipe] = useState();
   const [isRecipesLoading, setIsRecipesLoading] = useState(true);
+
+  // Permet d'ajouter ou d'enlever une recette de la liste des favoris
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
   useEffect(() => {
     (async function getRecipe() {
@@ -77,6 +81,26 @@ export default function Carrousel() {
       </div>
     );
   }
+
+  const handleClick = (recipe) => {
+    // eslint-disable-next-line
+    if (isFavorite(recipe)) {
+      setFavoriteRecipes(
+        favoriteRecipes.filter((r) => r.recipe.uri !== recipe.recipe.uri)
+      );
+    } else {
+      setFavoriteRecipes([...favoriteRecipes, recipe]);
+    }
+  };
+
+  const isFavorite = (recipe) => {
+    // double negation
+    return (
+      favoriteRecipes.find((r) => r.recipe.uri === recipe.recipe.uri) !==
+      undefined
+    );
+  };
+
   return (
     <div className="mx-auto w-[75%] min-h-screen my-24">
       <h1 className="mt-4 mb-6 lg:text-5xl text-4xl md:text-3xl dark:text-white text-center text-mada">
@@ -106,6 +130,13 @@ export default function Carrousel() {
                 <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
                   {firstRecipe.recipe.cuisineType}
                 </p>
+                <div className="favorite">
+                  <FavoriteRecipes
+                    isFavorite={isFavorite(firstRecipe)}
+                    // eslint-disable-next-line
+                    handleClick={() => handleClick(firstRecipe)}
+                  />
+                </div>
               </div>
             </div>
             {mealRecipes.slice(0, 9).map((item) => (
@@ -127,6 +158,13 @@ export default function Carrousel() {
                   <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
                     {item.recipe.cuisineType}
                   </p>
+                  <div className="favorite">
+                    <FavoriteRecipes
+                      isFavorite={isFavorite(item)}
+                      // eslint-disable-next-line
+                      handleClick={() => handleClick(item)}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
