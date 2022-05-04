@@ -34,7 +34,7 @@ export default function Home() {
           cook!
         </span>
       </h1>
-      <div className="my-20 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
+      <div className="my-20 pb-12 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
         <IngredientsAutocomplete
           onSelect={setSelectedIngredients}
           onClick={setSelectedIngredients}
