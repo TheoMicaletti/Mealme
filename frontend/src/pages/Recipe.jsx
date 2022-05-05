@@ -37,7 +37,7 @@ export default function Recipes() {
   }
 
   return (
-    <div className="flex flex-col w-3/5 m-auto">
+    <div className="flex flex-col w-3/5 m-auto my-24">
       <button
         type="button"
         onClick={() => handleSubmit()}
