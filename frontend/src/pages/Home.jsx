@@ -50,7 +50,7 @@ export default function Home() {
           cook!
         </span>
       </h1>
-      <div className="mb-12 my-20 pb-12 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
+      <div className="mb-12 my-20 pb-8 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
         <IngredientsAutocomplete
           onSelect={setSelectedIngredients}
           onClick={setSelectedIngredients}
@@ -95,6 +95,13 @@ export default function Home() {
               </button>
             </Link>
           </div>
+          <div>
+            <Link to="/todayrecipes">
+              <div className="text-center underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
+                Looking for some ideas?
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="text-center text-atma mb-8 dark:text-white text-gray-800 text-xl">
@@ -129,7 +136,7 @@ export default function Home() {
           </p>
         </ul>
       </div>
-      <div className="w-[90%] md:w-[80%] mx-auto text-mada mb-24 dark:text-white text-gray-800">
+      <div className="w-[90%] md:w-[80%] mx-auto text-mada mb-20 dark:text-white text-gray-800">
         <h1 className="text-atma mb-8 font-bold text-3xl">How does it work?</h1>
         <ul className="flex justify-around md:flex-row flex-col text-center text-xl">
           <li className="md:mx-8 my-8">
@@ -148,8 +155,8 @@ export default function Home() {
               <span className="font-bold">Add ingredients</span> you have in our
               search-bar
             </p>
-            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-24 m-auto text-gray-800">
-              then
+            <h2 className="mt-2 text-atma font-bold text-2xl bg-[#8ddc93] dark:bg-[#ffdb20] rounded-full w-28 m-auto text-gray-800">
+              ...then...
             </h2>
           </li>
           <li className="md:mx-8 my-8">
@@ -164,10 +171,10 @@ export default function Home() {
           </li>
         </ul>
         <div>
-          <h1 className="mt-16 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-5xl">
+          <h1 className="mt-12 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-5xl">
             Enjoy! 😄
           </h1>
-          <div className="mt-24 text-center text-atma dark:text-white text-gray-800 text-xl">
+          <div className="mt-18 text-center text-atma dark:text-white text-gray-800 text-xl">
             <p className="font-bold">Go up!</p>
             <p className="text-mada text-sm">Click on the banana!</p>
           </div>

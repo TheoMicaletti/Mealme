@@ -10,7 +10,7 @@ import Legal from "@pages/Legal";
 import Loader from "@components/Loader";
 import Recipe from "@pages/Recipe";
 import LoginForm from "@components/LoginForm";
-import BestRecipes from "@pages/BestRecipes";
+import TodayRecipes from "@pages/TodayRecipes";
 
 import LoginContext from "@contexts/LoginContext";
 
@@ -54,7 +54,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/carrousel" element={<Carrousel />} />
-                <Route path="/bestrecipes" element={<BestRecipes />} />
+                <Route path="/todayrecipes" element={<TodayRecipes />} />
                 <Route path="/recipe" element={<Recipe />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/legal" element={<Legal />} />
