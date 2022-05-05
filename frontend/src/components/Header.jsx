@@ -43,7 +43,7 @@ function Header({ handleLoginClick }) {
           </span>
         </div>
         {!currentUser && (
-          <div className="fixed text-mada top-4 right-4">
+          <div className="fixed text-mada top-4 right-4 hover:scale-105 duration-200">
             <button
               id="login"
               type="button"

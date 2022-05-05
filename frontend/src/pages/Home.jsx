@@ -29,7 +29,6 @@ export default function Home() {
     window.scroll({
       top: document.body.offsetHeight,
       bottom: 0,
-      left: 0,
       behavior: "smooth",
     });
   }
@@ -37,7 +36,6 @@ export default function Home() {
   function handleScroll2() {
     window.scroll({
       top: 0,
-      left: 0,
       behavior: "smooth",
     });
   }
@@ -86,7 +84,7 @@ export default function Home() {
               <button
                 type="button"
                 disabled={selectedIngredients.length === 0}
-                className="w-50 z-10 mb-4 border-2 border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-3xl text-white p-1.5 rounded-3xl text-mada disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
+                className="w-50 z-10 mb-4 border-2 border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-3xl text-white p-1.5 rounded-3xl text-mada hover:scale-105 duration-200 disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
               >
                 Let&apos;s{" "}
                 <span className="text-white text-atma dark:text-zinc-800 font-bold pointer-events-none">
@@ -97,7 +95,7 @@ export default function Home() {
           </div>
           <div>
             <Link to="/todayrecipes">
-              <div className="text-center underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
+              <div className="text-center underline dark:text-white hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
                 Looking for some ideas?
               </div>
             </Link>
@@ -117,7 +115,6 @@ export default function Home() {
           🥕
         </button>
       </div>
-
       <div className="w-[90%] md:w-[80%] mx-auto text-mada mb-24 dark:text-white text-gray-800">
         <h1 className="text-atma mb-12 font-bold text-3xl">What is Mealme?</h1>
         <ul className="text-center text-xl">

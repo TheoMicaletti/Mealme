@@ -60,8 +60,8 @@ function App() {
                 <Route path="/legal" element={<Legal />} />
               </Routes>
             )}
+            <Footer />
           </main>
-          <Footer />
         </LoginContext.Provider>
       </BrowserRouter>
     </div>

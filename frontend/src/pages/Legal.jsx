@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Legal() {
   return (
-    <div className="flex flex-col h-full justify-center items-align pt-36 text-mada">
+    <div className="flex flex-col h-full justify-center items-align pt-36 text-mada mb-48">
       <h1 className="mb-24 ml-auto mr-auto text-atma font-bold text-3xl text-[#8ddc93] dark:text-[#ffdb20]">
-        Mentions Légales
+        Legal
       </h1>
       <p className="dark:text-white mb-32 mr-auto ml-auto w-[80%] text-justify">
         Mealme© is in accordance with current data protection regulations (Data
@@ -36,10 +36,10 @@ export default function Legal() {
         and content, and conducting research in order to do so. These Conditions
         will be governed at all times by the provisions of FR and European
         legislation on the protection of personal data and privacy. If you have
-        a problem, contact MARIE, the SCRUMMASTER. If you want bolognese,
-        contact MATTHIEU, the LEAD-DEVELOPER. If you want to know about the
-        form, contact SIMON, the FORM-SKELETON-DEVELOPER. If you want a
-        beautiful design that take time to make, contact THEO, the
+        a problem, contact MARIE, the SCRUMMASTER (and the cheffe of Mealme). If
+        you want bolognese, contact MATTHIEU, the LEAD-DEVELOPER. If you want to
+        know about the form, contact SIMON, the FORM-SKELETON-DEVELOPER. If you
+        want a beautiful design that take time to make, contact THEO, the
         DESIGN-MASTER.
       </p>
     </div>

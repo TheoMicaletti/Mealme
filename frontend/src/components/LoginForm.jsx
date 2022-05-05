@@ -74,13 +74,13 @@ function LoginForm({ isShowLogin }) {
             <input
               type="submit"
               value="LOGIN!"
-              className="login-btn bg-[#8ddc93] dark:bg-[#ffdb20] p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
+              className="login-btn bg-[#8ddc93] dark:bg-[#ffdb20] hover:scale-105 duration-200 p-1 px-2 rounded-3xl mt-3 text-atma font-bold"
               onClick={onLogin}
             />
             <input
               type="submit"
               value="SIGN IN!"
-              className="login-btn border-1 border-[#8ddc93] ml-6 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
+              className="login-btn border-1 border-[#8ddc93] ml-6 hover:scale-105 duration-200 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
               onClick={onSignIn}
             />
           </form>

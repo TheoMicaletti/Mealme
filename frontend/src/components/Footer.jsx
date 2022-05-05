@@ -16,8 +16,8 @@ function Footer() {
 
   return (
     <div>
-      <div className="h-full text-mada p-1 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-100%" />
-      <footer className="h-full text-mada p-3 bg-gray-800 dark:bg-zinc-800 w-100% flex items-center justify-between">
+      <div className=" bottom-0 text-mada p-1 bg-gradient-to-r from-[#8ddc93] to-[#ffdb20] w-full" />
+      <footer className=" bottom-0 text-mada p-3 bg-gray-800 dark:bg-zinc-800 w-full flex items-center justify-between">
         <span className="flex items-center text-white">
           {" "}
           <img className="w-8 mr-3" src={Image} alt="logo" /> ©2022 Mealme™
