@@ -43,8 +43,8 @@ export const signin = async (user) => {
 };
 
 // Appel favorites database
-export const addToFavorites = async (id, name) => {
-  return (await axios.post(`${DB_URL}/favorites`, { id, name })).data;
+export const addToFavorites = async (user_id, recipe_id) => {
+  return (await axios.post(`${DB_URL}/favorites`, { user_id, recipe_id })).data;
 };
 
 export const removeFavorites = async (id) => {

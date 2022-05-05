@@ -89,24 +89,27 @@ export default function Carrousel() {
     );
   }
 
-  const handleClick = (recipe) => {
+  const handleClick = async (recipe) => {
     // eslint-disable-next-line
     if (isFavorite(recipe)) {
-      removeFavorites(currentUser.id, recipe.recipe.uri);
+      const favorite = currentUser.favorites.find(
+        (fav) => fav.recipe_id === recipe.recipe.uri
+      );
+
+      removeFavorites(favorite.id);
+
       setCurrentUser({
         ...currentUser,
         favorites: currentUser.favorites.filter(
-          (favorite) => favorite.name !== recipe.recipe.uri
+          (fav) => fav.recipe_id !== recipe.recipe.uri
         ),
       });
-
-      // appeler removeFromFavorite de l'api
     } else {
-      addToFavorites(currentUser.id, recipe.recipe.uri);
+      const favorite = await addToFavorites(currentUser.id, recipe.recipe.uri);
 
       setCurrentUser({
         ...currentUser,
-        favorites: [...currentUser.favorites, { name: recipe.recipe.uri }],
+        favorites: [...currentUser.favorites, favorite],
       });
     }
   };
@@ -114,7 +117,7 @@ export default function Carrousel() {
   const isFavorite = (recipe) => {
     return (
       currentUser?.favorites?.find(
-        (favorite) => favorite.name === recipe.recipe.uri
+        (favorite) => favorite.recipe_id === recipe.recipe.uri
       ) !== undefined
     );
   };
@@ -148,7 +151,6 @@ export default function Carrousel() {
                 <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
                   {firstRecipe.recipe.cuisineType}
                 </p>
-
                 {currentUser && (
                   <div className="favorite">
                     <FavoriteRecipes
@@ -179,13 +181,15 @@ export default function Carrousel() {
                   <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
                     {item.recipe.cuisineType}
                   </p>
-                  <div className="favorite">
-                    <FavoriteRecipes
-                      isFavorite={isFavorite(item)}
-                      // eslint-disable-next-line
-                      handleClick={() => handleClick(item)}
-                    />
-                  </div>
+                  {currentUser && (
+                    <div className="favorite">
+                      <FavoriteRecipes
+                        isFavorite={isFavorite(item)}
+                        // eslint-disable-next-line
+                        handleClick={() => handleClick(item)}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

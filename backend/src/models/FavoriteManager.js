@@ -5,22 +5,22 @@ class FavoriteManager extends AbstractManager {
 
   findByUser(userId) {
     return this.connection.query(
-      `SELECT name FROM ${FavoriteManager.table} WHERE id = ?`,
+      `SELECT * FROM ${FavoriteManager.table} WHERE user_id = ?`,
       [userId]
     );
   }
 
   insert(favorite) {
     return this.connection.query(
-      `insert into ${FavoriteManager.table} (id, name) values (?, ?)`,
-      [favorite.id, favorite.name]
+      `INSERT INTO ${FavoriteManager.table} (user_id, recipe_id) VALUES (?, ?)`,
+      [favorite.user_id, favorite.recipe_id]
     );
   }
 
   update(favorite) {
     return this.connection.query(
-      `update ${FavoriteManager.table} set name = ? where id = ?`,
-      [favorite.name, favorite.id]
+      `UPDATE ${FavoriteManager.table} SET recipe_id = ? WHERE user_id = ?`,
+      [favorite.recipe_id, favorite.user_id]
     );
   }
 }

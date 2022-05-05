@@ -15,12 +15,12 @@ class FavoriteController {
 
   static read = (req, res) => {
     models.favorites
-      .find(req.params.id)
+      .findByUser(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
         } else {
-          res.send(rows[0]);
+          res.send(rows);
         }
       })
       .catch((err) => {

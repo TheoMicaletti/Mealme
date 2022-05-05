@@ -24,15 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ingredients`
---
-
-CREATE TABLE `ingredients` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
 -- Structure de la table `users`
 --
 
@@ -40,7 +31,8 @@ CREATE TABLE `users` (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
+
 INSERT INTO `users` (`username`, `password`) VALUES
 ('theo', 'theo'),
 ('matthieu', 'matthieu'),
@@ -48,13 +40,13 @@ INSERT INTO `users` (`username`, `password`) VALUES
 ('simon', 'simon');
 
 --
--- Structure de la table `favorites`
+-- Structure de la table `ingredients`
 --
 
-CREATE TABLE `favorites` (
+CREATE TABLE `ingredients` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 --
 -- Déchargement des données de la table `ingredients`
@@ -382,26 +374,12 @@ INSERT INTO `ingredients` (`id`, `name`) VALUES
 (888, 'chicken');
 
 --
--- Index pour les tables déchargées
+-- Structure de la table `favorites`
 --
 
---
--- Index pour la table `ingredients`
---
-ALTER TABLE `ingredients`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `ingredients`
---
-ALTER TABLE `ingredients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=889;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `favorites` (
+  `id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `recipe_id` text NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+);
