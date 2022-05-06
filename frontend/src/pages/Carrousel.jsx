@@ -145,14 +145,11 @@ export default function Carrousel() {
                 />
               </Link>
               <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
-                <h3 className="dark:text-white mb-4 md:text-4xl text-xl text-center text-mada">
+                <h3 className="dark:text-white mb-2 md:text-4xl text-xl text-center text-mada">
                   {firstRecipe.recipe.label}
                 </h3>
-                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
-                  {firstRecipe.recipe.cuisineType}
-                </p>
                 {currentUser && (
-                  <div className="favorite">
+                  <div className="flex justify-center mb-2">
                     <FavoriteRecipes
                       isFavorite={isFavorite(firstRecipe)}
                       // eslint-disable-next-line
@@ -160,6 +157,9 @@ export default function Carrousel() {
                     />
                   </div>
                 )}
+                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
+                  {firstRecipe.recipe.cuisineType}
+                </p>
               </div>
             </div>
             {mealRecipes.slice(0, 9).map((item) => (
