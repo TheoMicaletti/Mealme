@@ -36,12 +36,22 @@ function Header({ handleLoginClick }) {
       </div>
 
       <div className="z-40 fixed">
-        <div className="fixed text-mada top-3 right-40 py-3 pl-4 pr-2 text-xl text-gray-800 dark:text-white">
-          {currentUser ? `Welcome` : ""}{" "}
-          <span className="text-atma font-bold ml-1 capitalize">
-            {currentUser?.username ?? ""}
-          </span>
-        </div>
+        {currentUser ? (
+          <div className="fixed text-mada top-3 right-40 py-3 pl-4 pr-2 text-xl text-gray-800 dark:text-white">
+            <h1>
+              {" "}
+              Welcome
+              <span className="text-atma font-bold ml-1 capitalize">
+                {currentUser?.username}
+              </span>
+            </h1>
+            <Link to="/favorites">
+              <p>Your favorites recipes...</p>
+            </Link>
+          </div>
+        ) : (
+          " "
+        )}
         {!currentUser && (
           <div className="fixed text-mada top-4 right-4 hover:scale-105 duration-200">
             <button

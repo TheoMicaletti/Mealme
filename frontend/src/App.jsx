@@ -11,6 +11,7 @@ import Loader from "@components/Loader";
 import Recipe from "@pages/Recipe";
 import LoginForm from "@components/LoginForm";
 import TodayRecipes from "@pages/TodayRecipes";
+import Favorites from "@pages/Favorites";
 
 import LoginContext from "@contexts/LoginContext";
 
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/carrousel" element={<Carrousel />} />
                 <Route path="/todayrecipes" element={<TodayRecipes />} />
+                <Route path="/favorites" element={<Favorites />} />
                 <Route path="/recipe" element={<Recipe />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/legal" element={<Legal />} />

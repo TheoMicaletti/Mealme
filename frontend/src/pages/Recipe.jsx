@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import uuid from "react-uuid";
-
 import Loader from "@components/Loader";
+
+import uuid from "react-uuid";
 
 import { getRecipeById } from "@services/api.js";
 
