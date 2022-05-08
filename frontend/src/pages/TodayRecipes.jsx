@@ -8,6 +8,7 @@ export default function BestRecipes() {
   const [isRecipesLoading, setIsRecipesLoading] = useState(true);
 
   const [recipes, setRecipes] = useState([]);
+  const [getRandom, setGetRandom] = useState(false);
 
   const random = true;
 
@@ -28,7 +29,8 @@ export default function BestRecipes() {
     setRecipes(result);
 
     setIsRecipesLoading(false);
-  }, []);
+    setGetRandom(false);
+  }, [getRandom]);
 
   if (isRecipesLoading) {
     return <Loader />;
@@ -36,15 +38,25 @@ export default function BestRecipes() {
 
   return (
     <div className="my-24">
-      <h1 className="sm:text-4xl text-5xl font-bold font-medium title-font text-gray-900 text-center text-mada">
+      <h1 className="sm:text-4xl text-5xl font-bold title-font text-gray-900 dark:text-white text-center text-mada">
         Discover our best recipes !
       </h1>
+      <button
+        type="button"
+        className="flex text-xl font-medium text-mada dark:text-white underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2 mx-auto"
+        onClick={() => setGetRandom(true)}
+      >
+        Get some more random !
+      </button>
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-12 mx-auto mb-20">
           <div className="flex flex-wrap -m-4 justify-center">
             {recipes.slice(0, 6).map((recipe) => (
-              <div className="lg:w-1/4 p-4 w-1/3 shadow-lg shadow-gray-400 m-4 rounded-lg duration-700 ease-in-out hover:scale-105">
+              <div
+                key={recipe.recipe.uri.split("_")[1]}
+                className="lg:w-1/4 p-4 w-1/3 shadow-lg shadow-gray-400 m-4 rounded-lg duration-700 ease-in-out hover:scale-105"
+              >
                 <div className="block relative h-48 rounded overflow-hidden">
                   <img
                     alt={recipe.recipe.label}
