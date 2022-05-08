@@ -61,12 +61,12 @@ export default function Home() {
                   className="form-check-input appearance-none h-6 w-6 mx-2 border border-gray-300 rounded-lg bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center bg-contain float-left cursor-pointer"
                   type="checkbox"
                   value={label.name}
-                  id="diet-checkbox"
+                  id={`diet-${label.name}`}
                   onChange={handleLabelChange}
                 />
                 <label
                   className="form-check-label text-black capitalize text-mada dark:text-white"
-                  htmlFor="diet-checkbox"
+                  htmlFor={`diet-${label.name}`}
                 >
                   {label.name}
                 </label>
