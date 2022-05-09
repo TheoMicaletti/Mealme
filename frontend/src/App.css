@@ -97,6 +97,10 @@ html.dark body {
   background-size: 100%;
 }
 
+.dark .notFavorite {
+  background-image: url(./assets/white-heart.png);
+}
+
 .arrow {
   position: relative;
   bottom: -2rem;

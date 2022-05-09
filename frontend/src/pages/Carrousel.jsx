@@ -184,7 +184,7 @@ export default function Carrousel() {
                     {item.recipe.cuisineType}
                   </p>
                   {currentUser && (
-                    <div className="favorite">
+                    <div className="flex justify-center mb-2">
                       <FavoriteRecipes
                         isFavorite={isFavorite(item)}
                         // eslint-disable-next-line
@@ -192,6 +192,9 @@ export default function Carrousel() {
                       />
                     </div>
                   )}
+                  <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
+                    {item.recipe.cuisineType}
+                  </p>
                 </div>
               </div>
             ))}
