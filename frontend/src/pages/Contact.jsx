@@ -28,13 +28,16 @@ export default function Contact() {
   };
 
   return (
-    <div className="h-full mb-48 mt-24">
+    <div className="min-h-screen my-24">
       <form onSubmit={handleSubmit(onSubmit)}>
         <section className="text-gray-700 body-font">
           <div className="container px-5 py-20 mx-auto">
             <div className="flex flex-col text-center w-full mb-12" x>
-              <h1 className="text-5xl text-[#8ddc93] dark:text-[#ffdb20] text-mada font-bold">
-                Contact Us!
+              <h1 className="text-5xl text-gray-800 dark:text-white text-mada">
+                Contact{" "}
+                <span className="text-[#8ddc93] dark:text-[#ffdb20] font-bold text-atma">
+                  Us!
+                </span>
               </h1>
             </div>
             <div className="mx-auto max-w-lg">
@@ -125,15 +128,15 @@ export default function Contact() {
                     </label>
                   </div>
                 </div>
-                <div className="p-2 w-full">
+                <div className="p-8 m-auto">
                   <Popup
                     trigger={
                       <button
                         type="submit"
                         disabled={!formIsFullFilled}
-                        className="flex mx-auto text-white bg-[#8ddc93] dark:bg-[#ffdb20] dark:text-black border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-3xl text-lg disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
+                        className="px-4 z-10 mb-4 border-2 text-atma font-bold border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-2xl text-white p-1.5 rounded-3xl disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
                       >
-                        Submit
+                        Submit!
                       </button>
                     }
                     position="right center"

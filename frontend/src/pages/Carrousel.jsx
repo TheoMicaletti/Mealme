@@ -58,7 +58,7 @@ export default function Carrousel() {
 
   if (mealRecipes.length === 0) {
     return (
-      <div className="max-w-xs mx-auto">
+      <div className="max-w-xs mx-auto min-h-screen mt-48 text-center">
         <img
           src={noRecipeFoundBlack}
           alt="No recipes found"
@@ -70,18 +70,18 @@ export default function Carrousel() {
           className="hidden dark:block"
         />
         <h3 className="text-center text-mada text-4xl dark:text-white mb-36">
-          No <span className="text-gradient text-atma font-bold">Recipes</span>{" "}
+          No{" "}
+          <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold">
+            Recipes
+          </span>{" "}
           Found !
         </h3>
         <Link to="/">
           <button
-            className="px-4 py-2 text-2xl border-2 rounded-3xl dark:text-white text-mada flex mx-auto pointer-events-auto shadow-md shadow-gray-400"
+            className="w-auto p-2 px-4 z-10 border-2 text-mada border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-2xl text-white rounded-3xl disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
             type="button"
           >
-            Go back to the{" "}
-            <span className="text-gradient text-atma px-2 font-bold">
-              kitchen
-            </span>{" "}
+            Go back to the <span className="text-atma font-bold">kitchen</span>{" "}
             !
           </button>
         </Link>
@@ -123,10 +123,12 @@ export default function Carrousel() {
   };
 
   return (
-    <div className="mx-auto w-[75%] min-h-screen my-24">
+    <div className="mx-auto w-[75%] min-h-screen mt-48">
       <h1 className="mt-4 mb-6 lg:text-5xl text-4xl md:text-3xl dark:text-white text-center text-mada">
         Choose your{" "}
-        <span className="text-gradient text-atma font-bold">meal!</span>
+        <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold">
+          meal!
+        </span>
       </h1>
       <div className="mx-auto my-auto w-full h-full max-w-sm max-h-sm">
         <div
@@ -140,7 +142,7 @@ export default function Carrousel() {
               <Link to={`/recipe?id=${firstRecipe.recipe.uri.split("_")[1]}`}>
                 <img
                   src={firstRecipe.recipe.image}
-                  className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
+                  className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg"
                   alt={firstRecipe.recipe.label}
                 />
               </Link>
@@ -157,7 +159,7 @@ export default function Carrousel() {
                     />
                   </div>
                 )}
-                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
+                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-[#8ddc93] dark:text-[#ffdb20]">
                   {firstRecipe.recipe.cuisineType}
                 </p>
               </div>
@@ -178,7 +180,7 @@ export default function Carrousel() {
                   <h3 className="dark:text-white mb-4 md:text-4xl text-xl text-center text-mada">
                     {item.recipe.label}
                   </h3>
-                  <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
+                  <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-[#8ddc93] dark:text-[#ffdb20]">
                     {item.recipe.cuisineType}
                   </p>
                   {currentUser && (

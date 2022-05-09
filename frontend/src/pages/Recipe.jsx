@@ -37,11 +37,11 @@ export default function Recipes() {
   }
 
   return (
-    <div className="flex flex-col w-3/5 m-auto my-24">
+    <div className="flex flex-col w-3/5 m-auto mt-48 min-h-screen">
       <button
         type="button"
         onClick={() => handleSubmit()}
-        className="mb-6 py-1 text-mada w-2/5 md:w-1/5 mx-auto border-2 rounded-3xl border-[#78B07C] dark:border-[#ffdb20] text-sm text-black dark:text-white text-center shadow-sm shadow-gray-400 duration-700 ease-in-out hover:scale-105"
+        className="mb-6 py-1 text-mada w-2/5 md:w-1/5 mx-auto border-2 rounded-3xl border-[#78B07C] dark:border-[#ffdb20] text-sm text-black dark:text-white text-center shadow-sm duration-700 ease-in-out hover:scale-105"
       >
         <span>
           <i className="fa-solid fa-angles-left pr-1" />
@@ -52,28 +52,28 @@ export default function Recipes() {
         src={recipe.image}
         alt=""
         style={{ height: 300, width: 300 }}
-        className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg shadow-gray-400"
+        className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg"
       />
       <h1 className="mb-6 text-center text-3xl dark:text-white text-mada font-bold">
         {recipe.label}
       </h1>
-      <div className="flex flex-row mb-4 mx-auto text-2xl text-[#78B07C] dark:text-[#ffdb20]">
-        <h3 className="text-center px-4 capitalize decoration-solid underline decoration-2 decoration-[#8ddc93] dark:decoration-[#ffdb20] text-atma font-bold">
+      <div className="flex flex-row mb-4 mx-auto text-2xl text-[#8ddc93] dark:text-[#ffdb20]">
+        <h3 className="text-center px-4 capitalize decoration-solid text-atma font-bold">
           {recipe.cuisineType}
         </h3>
-        <h3 className="text-center px-4 capitalize decoration-solid underline decoration-2 decoration-[#8ddc93] dark:decoration-[#ffdb20] text-atma  font-bold">
+        <h3 className="text-center px-4 capitalize decoration-solid text-atma font-bold">
           {recipe.mealType}
         </h3>
       </div>
       <div className="flex flex-row mx-auto mb-6">
         <div className="flex flex-col text-center px-4 mx-4">
-          <i className="fa-solid fa-clock text-3xl text-gradient" />
+          <i className="fa-solid fa-clock text-3xl text-[#8ddc93] dark:text-[#ffdb20]" />
           <p className="dark:text-white text-lg text-mada">
             {recipe.totalTime} Mins
           </p>
         </div>
         <div className="flex flex-col text-center px-4 mx-6">
-          <i className="fa-solid fa-utensils text-3xl text-gradient" />
+          <i className="fa-solid fa-utensils text-3xl text-[#8ddc93] dark:text-[#ffdb20]" />
           <p className="dark:text-white text-lg text-mada">
             Serves {recipe.yield}
           </p>

@@ -48,7 +48,7 @@ export default function Home() {
           cook!
         </span>
       </h1>
-      <div className="mb-12 my-20 pb-8 max-w-lg w-[90%] mr-auto ml-auto rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
+      <div className="mb-12 my-20 pb-8 max-w-lg w-[90%] mr-auto ml-auto capitalize rounded-3xl border-4 dark:border-[#ffdb20] border-[#8ddc93] bg-zinc-50 dark:bg-gray-700 drop-shadow-lg">
         <IngredientsAutocomplete
           onSelect={setSelectedIngredients}
           onClick={setSelectedIngredients}
@@ -95,14 +95,14 @@ export default function Home() {
           </div>
           <div>
             <Link to="/todayrecipes">
-              <div className="text-center underline dark:text-white hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
+              <div className="text-center underline dark:text-white hover:font-bold normal-case decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2">
                 Looking for some ideas?
               </div>
             </Link>
           </div>
         </div>
       </div>
-      <div className="text-center text-atma mb-8 dark:text-white text-gray-800 text-xl">
+      <div className="text-center text-atma mb-8 z-20 dark:text-white text-gray-800 text-xl">
         <p className="font-bold">Want to know more?</p>
         <p className="text-mada text-sm">Click on the carrot!</p>
       </div>

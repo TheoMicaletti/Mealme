@@ -6,7 +6,7 @@ function SkeletonArticle({ theme }) {
   const themeClass = theme || "light";
 
   return (
-    <div className="titleArticle mb-48 mt-48">
+    <div className="titleArticle min-h-screen mt-48">
       <div className="articleMaster">
         <div className={`skeleton-wrapper-title ${themeClass}`}>
           <SkeletonElement type="title" />

@@ -3,12 +3,12 @@ import { useState } from "react";
 function Suggestions({ data = [], onSelect }) {
   return (
     <div className="flex justify-center">
-      <ul className="flex flex-col text-lg border-1 z-10 rounded dark:text-white">
+      <ul className="absolute text-lg border-1 z-50 rounded dark:text-white">
         {data.map((suggestion) => (
           // eslint-disable-next-line
           <li
             key={suggestion.id}
-            className="pr-52 leading-10 bg-white hover:bg-slate-100 dark:text-black z-10"
+            className="pr-52 leading-10 bg-white hover:bg-slate-100 capitalize text-mada dark:text-black pl-4 py-1 z-50"
             onClick={() => onSelect(suggestion)}
           >
             {suggestion.name}
