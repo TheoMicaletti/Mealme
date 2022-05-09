@@ -133,7 +133,7 @@ export default function Home() {
           </p>
         </ul>
       </div>
-      <div className="w-[90%] md:w-[80%] mx-auto text-mada mb-20 dark:text-white text-gray-800">
+      <div className="w-[90%] md:w-[80%] mx-auto text-mada pb-20 dark:text-white text-gray-800">
         <h1 className="text-atma mb-8 font-bold text-3xl">How does it work?</h1>
         <ul className="flex justify-around md:flex-row flex-col text-center text-xl">
           <li className="md:mx-8 my-8">
