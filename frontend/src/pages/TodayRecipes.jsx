@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { getRecipesByIngredients, getIngredientsList } from "@services/api.js";
 
@@ -58,11 +59,13 @@ export default function BestRecipes() {
                 className="lg:w-1/4 p-4 w-1/3 shadow-lg shadow-gray-400 m-4 rounded-lg duration-700 ease-in-out hover:scale-105"
               >
                 <div className="block relative h-48 rounded overflow-hidden">
-                  <img
-                    alt={recipe.recipe.label}
-                    className="object-cover object-center w-full h-full block bg-gradient-to-br from-[#78B07C] to-[#ffdb20] p-2"
-                    src={recipe.recipe.image}
-                  />
+                  <Link to={`/recipe?id=${recipe.recipe.uri.split("_")[1]}`}>
+                    <img
+                      alt={recipe.recipe.label}
+                      className="object-cover object-center w-full h-full block bg-gradient-to-br from-[#78B07C] to-[#ffdb20] p-2"
+                      src={recipe.recipe.image}
+                    />
+                  </Link>
                 </div>
                 <div className="mt-4">
                   <h3 className="text-xs tracking-widest title-font mb-1 capitalize dark:text-white font-bold text-mada">
