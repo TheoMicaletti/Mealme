@@ -1,3 +1,4 @@
+const argon2 = require("argon2");
 const models = require("../models");
 
 class UserController {
@@ -16,32 +17,50 @@ class UserController {
   static login = async (req, res) => {
     const { username, password } = req.body.user;
 
-    const [result] = await models.users.findByUserPassword(username, password);
+    try {
+      const [result] = await models.users.findByUser(username);
 
-    if (result.length) {
-      const user = result[0];
+      if (!result.length) {
+        res.sendStatus(401);
+      }
 
-      // Ajout des recettes favorites au profil de l'utilisateur
-      const [favorites] = await models.favorites.findByUser(user.id);
-      user.favorites = favorites;
-      res.send(user);
-    } else {
-      res.status(401).send("Bad credentials !");
+      if (result.length) {
+        const hashedPassword = result[0].password;
+        if (await argon2.verify(hashedPassword, password)) {
+          const { cryptedPassword, ...user } = result[0];
+          // Ajout des recettes favorites au profil de l'utilisateur
+          const [favorites] = await models.favorites.findByUser(user.id);
+          user.favorites = favorites;
+          res.send(user);
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
     }
   };
 
-  static sign = (req, res) => {
-    const { username, password } = req.body.user;
+  static sign = async (req, res) => {
+    const user = req.body.user;
 
-    models.users
-      .insert(username, password)
-      .then((user) => {
-        res.status(201).send(user);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+    const [getUser] = await models.users.findByUser(user.username);
+
+    if (getUser) {
+      return res.sendStatus(401);
+    }
+
+    try {
+      user.password = await argon2.hash(user.password);
+
+      models.users.insert(user.username, user.password).then((item) => {
+        res.status(201).send(item.username);
       });
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500).send(err.code);
+    }
+
+    return null;
   };
 }
 

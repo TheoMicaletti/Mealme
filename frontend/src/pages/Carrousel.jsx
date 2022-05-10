@@ -106,7 +106,6 @@ export default function Carrousel() {
       });
     } else {
       const favorite = await addToFavorites(currentUser.id, recipe.recipe.uri);
-
       setCurrentUser({
         ...currentUser,
         favorites: [...currentUser.favorites, favorite],
@@ -123,7 +122,7 @@ export default function Carrousel() {
   };
 
   return (
-    <div className="mx-auto w-[75%] min-h-screen mt-48">
+    <div className="mx-auto w-[75%] min-h-screen mt-36">
       <h1 className="mt-4 mb-6 lg:text-5xl text-4xl md:text-3xl dark:text-white text-center text-mada">
         Choose your{" "}
         <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold">

@@ -23,7 +23,7 @@ function LoginForm({ isShowLogin }) {
     e.preventDefault();
 
     try {
-      const user = await signin({ username, password });
+      setCurrentUser(await signin({ username, password }));
     } catch (err) {
       alert(err.message);
     }

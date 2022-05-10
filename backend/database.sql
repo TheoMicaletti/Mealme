@@ -26,18 +26,16 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `users`
 --
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `username` VARCHAR(20) NOT NULL,
-  `password` VARCHAR(60) NOT NULL
+  `username` VARCHAR(20) UNIQUE NOT NULL,
+  `password` VARCHAR(255) NOT NULL
 );
 
 INSERT INTO `users` (`username`, `password`) VALUES
-('theo', 'theo'),
-('matthieu', 'matthieu'),
-('marie', 'marie'),
-('simon', 'simon');
+('admin', 'admin');
 
 --
 -- Structure de la table `ingredients`

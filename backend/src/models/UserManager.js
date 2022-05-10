@@ -3,10 +3,10 @@ const AbstractManager = require("./AbstractManager");
 class UserManager extends AbstractManager {
   static table = "users";
 
-  findByUserPassword(username, password) {
+  findByUser(username) {
     return this.connection.query(
-      `SELECT id, username FROM ${UserManager.table} WHERE username = ? AND password = ?`,
-      [username, password]
+      `SELECT * FROM ${UserManager.table} WHERE username = ?`,
+      [username]
     );
   }
 
