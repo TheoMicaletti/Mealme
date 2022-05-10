@@ -39,15 +39,15 @@ export default function BestRecipes() {
 
   return (
     <div className="my-24 min-h-screen">
-      <h1 className="sm:text-4xl text-5xl font-bold title-font text-gray-900 dark:text-white text-center text-mada">
-        Discover our best recipes !
+      <h1 className="text-4xl dark:text-white title-font text-gray-900 text-center text-mada">
+        Discover our <span className="text-atma font-bold"> new recipes!</span>
       </h1>
       <button
         type="button"
         className="flex text-xl font-medium text-mada dark:text-white underline hover:font-bold decoration-[#8ddc93] dark:decoration-[#ffdb20] decoration-2 mx-auto"
         onClick={() => setGetRandom(true)}
       >
-        Get some more random !
+        Get some more!
       </button>
 
       <section className="text-gray-600 body-font">
