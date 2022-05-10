@@ -38,7 +38,7 @@ export default function BestRecipes() {
   }
 
   return (
-    <div className="my-24 h-screen">
+    <div className="my-24 min-h-screen">
       <h1 className="sm:text-4xl text-5xl font-bold title-font text-gray-900 dark:text-white text-center text-mada">
         Discover our best recipes !
       </h1>

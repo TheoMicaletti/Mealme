@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LoginContext from "@contexts/LoginContext";
 import Image from "@assets/logoName.png";
 import DarkImage from "@assets/darkLogoName.png";
+import Logo from "@assets/logo.png";
 
 function Header({ handleLoginClick }) {
   const { currentUser } = useContext(LoginContext);
@@ -23,13 +24,18 @@ function Header({ handleLoginClick }) {
         <nav className="backdrop-blur-xl bg-transparent h-18" />
         <Link to="/">
           <img
-            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-52 m-2 dark:hidden"
+            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-52 m-2 sm:inline hidden dark:hidden"
             src={Image}
             alt="LogoName"
           />
           <img
-            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-50 m-2 hidden dark:block"
+            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-50 m-2 hidden dark:sm:inline dark:hidden"
             src={DarkImage}
+            alt="LogoName"
+          />
+          <img
+            className="hover:cursor-pointer fixed top-0 left-0 right-0 w-14 m-2 dark:sm:hidden sm:hidden inline dark:block"
+            src={Logo}
             alt="LogoName"
           />
         </Link>
@@ -39,7 +45,6 @@ function Header({ handleLoginClick }) {
         {currentUser ? (
           <div className="fixed text-mada top-3 right-40 py-3 pl-4 pr-2 text-xl text-gray-800 dark:text-white">
             <h1>
-              {" "}
               Welcome
               <span className="text-atma font-bold ml-1 capitalize">
                 {currentUser?.username}
@@ -53,7 +58,7 @@ function Header({ handleLoginClick }) {
           " "
         )}
         {!currentUser && (
-          <div className="fixed text-mada top-4 right-4 hover:scale-105 duration-200">
+          <div className="fixed text-mada top-3 right-4 hover:scale-105 duration-200">
             <button
               id="login"
               type="button"
@@ -79,7 +84,7 @@ function Header({ handleLoginClick }) {
               className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-red-700 bg-red-400 drop-shadow-md"
             >
               Logout
-              <span className="ml-2 bg-red-800 rounded-full pl-1 pr-2 py-1.5 inline">
+              <span className="ml-2 bg-red-800 rounded-full pl-1 pr-2 py-1.5 inline border-1 border-red-700">
                 👋
               </span>
             </button>

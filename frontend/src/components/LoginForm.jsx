@@ -38,7 +38,7 @@ function LoginForm({ isShowLogin }) {
       <div className="login-form">
         <div className="form-box solid">
           <form>
-            <h1 className="login-text text-mada text-gray-800 px-1 dark:text-white">
+            <h1 className="login-text text-mada text-gray-800 px-1 dark:text-white font-bold">
               Please sign in:
             </h1>
             <label
@@ -50,9 +50,10 @@ function LoginForm({ isShowLogin }) {
               <input
                 type="text"
                 name="username"
-                className="login-box text-mada border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
+                className="login-box pl-2 text-mada border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
                 value={username}
                 onChange={({ target }) => setUsername(target.value)}
+                placeholder="Your name"
               />
               <br />
             </label>
@@ -65,9 +66,10 @@ function LoginForm({ isShowLogin }) {
               <input
                 type="password"
                 name="password"
-                className="login-box text-mada border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
+                className="login-box text-mada pl-2 border-1 hover:border-[#8ddc93] dark:hover:border-[#ffdb20] dark:text-gray-800"
                 value={password}
                 onChange={({ target }) => setPassword(target.value)}
+                placeholder="Your password"
               />
               <br />
             </label>
@@ -80,7 +82,7 @@ function LoginForm({ isShowLogin }) {
             <input
               type="submit"
               value="SIGN IN!"
-              className="login-btn border-1 border-[#8ddc93] ml-6 hover:scale-105 duration-200 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
+              className="login-btn border-1 border-[#8ddc93] ml-8 hover:scale-105 duration-200 dark:border-[#ffdb20] text-[#8ddc93] dark:text-[#ffdb20] p-1 px-2 rounded-3xl ml-2 mt-2 text-atma font-bold"
               onClick={onSignIn}
             />
           </form>
