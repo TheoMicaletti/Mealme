@@ -168,7 +168,7 @@ export default function Home() {
           </li>
         </ul>
         <div>
-          <h1 className="mt-12 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-5xl">
+          <h1 className="mt-8 mb-4 text-right text-atma font-bold text-[#8ddc93] dark:text-[#ffdb20] text-3xl mr-12 sm:text-5xl sm:mr-8 sm:mt-12">
             Enjoy! 😄
           </h1>
           <div className="mt-18 text-center text-atma dark:text-white text-gray-800 text-xl">
