@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 
 import Loader from "@components/Loader";
 
@@ -48,12 +48,14 @@ export default function Recipes() {
         </span>{" "}
         Back...
       </button>
-      <img
-        src={recipe.image}
-        alt=""
-        style={{ height: 300, width: 300 }}
-        className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg"
-      />
+      <a href={recipe.url} target="_blank" rel="noreferrer">
+        <img
+          src={recipe.image}
+          alt=""
+          style={{ height: 300, width: 300 }}
+          className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg"
+        />
+      </a>
       <h1 className="mb-6 text-center text-3xl dark:text-white text-mada font-bold">
         {recipe.label}
       </h1>
