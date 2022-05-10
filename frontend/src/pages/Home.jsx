@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="with-bg h-full bg-bgwhite dark:bg-bgdark">
-      <h1 className="pt-32 z-10 text-6xl text-4xl dark:text-white text-center text-gray-800 text-mada">
+      <h1 className="pt-40 z-10 text-6xl text-4xl dark:text-white text-center text-gray-800 text-mada">
         Let&apos;s{" "}
         <span className="text-[#8ddc93] dark:text-[#ffdb20] text-atma font-bold">
           cook!
