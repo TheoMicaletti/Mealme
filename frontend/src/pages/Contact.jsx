@@ -9,10 +9,18 @@ export default function Contact() {
     getValues,
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => data;
+  const [correctlyFilled, setCorrectlyFilled] = useState();
+
+  const onSubmit = () => {
+    setCorrectlyFilled(true);
+    alert("Thanks for your message, we will respond as soon as possible !");
+    reset();
+  };
+  const regex = /^[A-Za-z]+$/i;
 
   const [formIsFullFilled, setFormIsFullFilled] = useState(false);
 
@@ -51,25 +59,27 @@ export default function Contact() {
                         {...register("firstName", {
                           required: true,
                           maxLength: 20,
-                          pattern: /^[A-Za-z]+$/i,
+                          pattern: regex,
                           onChange: handleChange,
+                          placeholder: "John",
                         })}
-                        placeholder="John"
                         className="w-full bg-gray-100 rounded-xl border focus:border-2 border-gray-300 focus:border-[#8ddc93] dark:focus:border-[#ffdb20] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                       />
                     </label>
                     {errors?.firstName?.type === "maxLength" && (
-                      <p className="Require">
+                      <p className="Require dark:text-white">
                         First name cannot exceed 20 characters
                       </p>
                     )}
                     {errors?.firstName?.type === "pattern" && (
-                      <p className="Require">Alphabetical characters only</p>
+                      <p className="Require dark:text-white">
+                        Alphabetical characters only
+                      </p>
                     )}
                   </div>
                 </div>
                 <div className="p-2 w-1/2">
-                  <div className="relative">
+                  <div className="relative text-mada">
                     <label
                       htmlFor
                       className="w-32 dark:text-white text-mada ml-2"
@@ -79,20 +89,22 @@ export default function Contact() {
                         {...register("lastName", {
                           required: true,
                           maxLength: 20,
-                          pattern: /^[A-Za-z]+$/i,
+                          pattern: regex,
                           onChange: handleChange,
+                          placeholder: "Doe",
                         })}
-                        placeholder="Doe"
                         className="w-full bg-gray-100 rounded-xl border focus:border-2 border-gray-300 focus:border-[#8ddc93] dark:focus:border-[#ffdb20] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                       />
                     </label>
                     {errors?.lastName?.type === "maxLength" && (
-                      <p className="Require">
+                      <p className="Require dark:text-white">
                         First name cannot exceed 20 characters
                       </p>
                     )}
                     {errors?.lastName?.type === "pattern" && (
-                      <p className="Require">Alphabetical characters only</p>
+                      <p className="Require dark:text-white">
+                        Alphabetical characters only
+                      </p>
                     )}
                   </div>
                 </div>
@@ -100,7 +112,7 @@ export default function Contact() {
                   <div className="relative">
                     <label
                       htmlFor="email"
-                      className="w-32 dark:text-white text-mada ml-2"
+                      className="w-32 dark:text-white text-mada"
                     >
                       Email
                       <input
@@ -119,7 +131,7 @@ export default function Contact() {
                   <div className="relative">
                     <label
                       htmlFor="message"
-                      className="w-32 dark:text-white text-mada ml-2"
+                      className="w-32 dark:text-white text-mada"
                     >
                       Message
                       <textarea
@@ -133,24 +145,29 @@ export default function Contact() {
                     </label>
                   </div>
                 </div>
-                <div className="p-8 m-auto">
-                  <Popup
-                    trigger={
-                      <button
-                        type="submit"
-                        disabled={!formIsFullFilled}
-                        className="px-4 z-10 mb-4 border-2 text-atma font-bold border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-2xl text-white p-1.5 rounded-3xl disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
-                      >
-                        Submit!
-                      </button>
-                    }
-                    position="right center"
-                  >
-                    <div className="w-32 lg:text-base dark:text-dark text-mada">
-                      Thanks for your message, we will respond as soon as
-                      possible !
-                    </div>
-                  </Popup>
+                <div className="flex w-32 dark:text-white text-mada">
+                  <div className="p-8 m-auto">
+                    <Popup
+                      trigger={
+                        <button
+                          type="submit"
+                          disabled={!formIsFullFilled}
+                          className="px-4 z-10 mb-4 border-2 text-atma font-bold border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-2xl text-white p-1.5 rounded-3xl disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
+                        >
+                          Submit
+                        </button>
+                      }
+                      position="right center"
+                    >
+                      {!correctlyFilled ? (
+                        <div className="Require w-32 lg:text-base dark:text-white text-mada">
+                          You need to correctly fill the form !
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </Popup>
+                  </div>
                 </div>
                 <div className="p-2 w-full mt-8 border-t border-gray-200 text-center">
                   <div className="leading-normal mt-8 dark:text-white text-mada flex justify-around items-center">
