@@ -43,7 +43,7 @@ function Header({ handleLoginClick }) {
 
       <div className="z-40 fixed">
         {currentUser ? (
-          <div className="fixed top-3 mt-0 right-44 sm:right-52 text-mada py-4 pl-4 text-xl text-gray-800 dark:text-white">
+          <div className="fixed top-3 mt-0 right-52 text-mada py-4 pl-4 text-xl text-gray-800 dark:text-white">
             <Link to="/favorites">
               <div className="link link-underline link-underline-black text-black">
                 <span className="text-atma font-bold capitalize">
@@ -52,7 +52,7 @@ function Header({ handleLoginClick }) {
                 </span>{" "}
                 <span>favs</span>
               </div>
-              <span className="fixed top-3 mt-0 right-[150px] sm:right-[180px] text-mada py-4 pl-4">
+              <span className="fixed top-3 mt-0 right-[180px] text-mada py-4 pl-4">
                 {" "}
                 ♥️
               </span>

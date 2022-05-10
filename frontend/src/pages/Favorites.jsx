@@ -37,8 +37,8 @@ export default function Favorites() {
 
   return (
     <div className="h-screen my-24">
-      <h1 className="sm:text-4xl text-5xl font-bold dark:text-white title-font text-gray-900 text-center text-mada">
-        Welcome to your favorites recipes !
+      <h1 className="pt-20 text-3xl dark:text-white title-font text-gray-900 text-center text-mada">
+        My favorites <span className="text-atma font-bold">recipes...</span>
       </h1>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-12 mx-auto mb-20">

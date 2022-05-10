@@ -142,14 +142,17 @@ export default function Carrousel() {
               <Link to={`/recipe?id=${firstRecipe.recipe.uri.split("_")[1]}`}>
                 <img
                   src={firstRecipe.recipe.image}
-                  className="block w-full p-2 mb-6 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg"
+                  className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg"
                   alt={firstRecipe.recipe.label}
                 />
               </Link>
               <div className="flex flex-col p-6 rounded-lg max-w-sm w-full mx-auto">
-                <h3 className="dark:text-white mb-2 md:text-4xl text-xl text-center text-mada">
+                <h3 className="dark:text-white mb-4 md:text-4xl text-xl text-center text-mada">
                   {firstRecipe.recipe.label}
                 </h3>
+                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-[#8ddc93] dark:text-[#ffdb20]">
+                  {firstRecipe.recipe.cuisineType}
+                </p>
                 {currentUser && (
                   <div className="flex justify-center mb-2">
                     <FavoriteRecipes
@@ -159,9 +162,6 @@ export default function Carrousel() {
                     />
                   </div>
                 )}
-                <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-[#8ddc93] dark:text-[#ffdb20]">
-                  {firstRecipe.recipe.cuisineType}
-                </p>
               </div>
             </div>
             {mealRecipes.slice(0, 9).map((item) => (
@@ -172,7 +172,7 @@ export default function Carrousel() {
                 <Link to={`/recipe?id=${item.recipe.uri.split("_")[1]}`}>
                   <img
                     src={item.recipe.image}
-                    className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg shadow-gray-400"
+                    className="block w-full p-2 mb-2 bg-gradient-to-br from-[#78B07C] to-[#ffdb20] rounded-[80px] shadow-lg"
                     alt={item.recipe.label}
                   />
                 </Link>
@@ -192,9 +192,6 @@ export default function Carrousel() {
                       />
                     </div>
                   )}
-                  <p className="capitalize dark:text-white font-bold mb-2 md:text-2xl text-lg text-center w-full text-atma text-gradient">
-                    {item.recipe.cuisineType}
-                  </p>
                 </div>
               </div>
             ))}

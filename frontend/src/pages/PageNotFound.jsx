@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function PageNotFound() {
   return (
-    <div className="main h-screen">
-      <div className="box">
+    <div className="main h-screen flex flex-col">
+      <div className="box dark:border-4 dark:border-[#ffdb20] mt-48">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlnsxlink="http://www.w3.org/1999/xlink"
@@ -130,28 +130,21 @@ function PageNotFound() {
             </g>
           </g>
         </svg>
-        <div className="return">
-          <Link to="/">
-            <button
-              type="button"
-              className="py-2 rounded-3xl pl-4 pr-2 text-mada text-xl border-1 border-green-700 bg-green-400 font-bold drop-shadow-md"
-            >
-              Return to the main menu
-              <svg
-                className="w-5 h-5 ml-2 -mr-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </Link>
-        </div>
+      </div>
+      <div className="return m-auto">
+        <Link to="/">
+          <button
+            type="button"
+            className="text-mada -mt-12 w-60 z-10 mb-36 border-2 border-white dark:border-gray-800 dark:text-zinc-800 text-center bg-[#8ddc93] dark:bg-[#ffdb20] hover:bg-green-600 dark:hover:bg-yellow-500 text-xl text-white p-1.5 rounded-3xl hover:scale-105 duration-200 disabled:bg-gray-300 dark:disabled:bg-gray-300 drop-shadow"
+          >
+            Return to the kitchen 🍜
+            <path
+              fillRule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </button>
+        </Link>
       </div>
     </div>
   );
