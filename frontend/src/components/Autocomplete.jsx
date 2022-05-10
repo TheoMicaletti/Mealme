@@ -93,17 +93,23 @@ export default function AutoComplete({ data, onSelect, onClick }) {
   return (
     // eslint-disable-next-line
     <div onClick={handleClick}>
-      <h2 className="flex justify-center mb-4 mt-12 text-mada text-xl text-gray-800 dark:text-white">
-        <p className="mr-1">
-          Choose <span className="font-bold text-atma">{count}</span>{" "}
-          ingredients:{" "}
+      <h2 className="flex justify-center mb-4 mt-12 text-mada text-xl text-gray-800 dark:text-white ">
+        <p className="mr-1 normal-case">
+          {selectedIngredients.length === 3 ? (
+            "You cannot add more ingredients..."
+          ) : (
+            <>
+              Choose <span className="font-bold text-atma mr-1">{count}</span>
+              ingredient{selectedIngredients.length === 2 ? "" : "s"}:
+            </>
+          )}
         </p>
       </h2>
       <form>
         <div className="flex justify-center">
           <input
             type="text"
-            className="max-w-[90%] h-14 w-96 pl-4 pr-20 border-1 border-black rounded-3xl focus:shadow focus:outline-none disabled:bg-gray-200"
+            className="max-w-[90%] h-14 w-96 pl-6 pr-20 border-1 border-black rounded-3xl focus:shadow focus:outline-none disabled:bg-gray-200"
             placeholder="Add ingredients"
             value={selectedSuggestion}
             onChange={handleChange}
