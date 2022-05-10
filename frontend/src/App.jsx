@@ -12,6 +12,7 @@ import Recipe from "@pages/Recipe";
 import LoginForm from "@components/LoginForm";
 import TodayRecipes from "@pages/TodayRecipes";
 import Favorites from "@pages/Favorites";
+import PageNotFound from "@pages/PageNotFound";
 
 import LoginContext from "@contexts/LoginContext";
 
@@ -60,6 +61,7 @@ function App() {
                 <Route path="/recipe" element={<Recipe />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/legal" element={<Legal />} />
+                <Route path="*" element={<PageNotFound />} />
               </Routes>
             )}
             <Footer />
