@@ -69,13 +69,13 @@ export default function Recipes() {
       </div>
       <div className="flex flex-row mx-auto mb-6">
         <div className="flex flex-col text-center px-4 mx-4">
-          <i className="fa-solid fa-clock text-3xl text-[#8ddc93] dark:text-[#ffdb20]" />
+          <i className="fa-solid fa-clock text-3xl text-gray-500 dark:text-white" />
           <p className="dark:text-white text-lg text-mada">
             {recipe.totalTime} Mins
           </p>
         </div>
         <div className="flex flex-col text-center px-4 mx-6">
-          <i className="fa-solid fa-utensils text-3xl text-[#8ddc93] dark:text-[#ffdb20]" />
+          <i className="fa-solid fa-utensils text-3xl text-gray-500 dark:text-white" />
           <p className="dark:text-white text-lg text-mada">
             Serves {recipe.yield}
           </p>

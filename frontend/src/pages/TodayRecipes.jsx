@@ -56,7 +56,7 @@ export default function BestRecipes() {
             {recipes.slice(0, 6).map((recipe) => (
               <div
                 key={recipe.recipe.uri.split("_")[1]}
-                className="lg:w-1/4 p-4 w-1/3 shadow-lg shadow-gray-400 m-4 rounded-lg duration-700 ease-in-out hover:scale-105"
+                className="lg:w-1/4 p-4 w-1/3 shadow-lg shadow-gray-400 m-4 rounded-lg"
               >
                 <div className="block relative h-48 rounded overflow-hidden">
                   <Link to={`/recipe?id=${recipe.recipe.uri.split("_")[1]}`}>
