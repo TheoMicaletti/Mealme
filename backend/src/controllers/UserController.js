@@ -45,7 +45,7 @@ class UserController {
 
     const [getUser] = await models.users.findByUser(user.username);
 
-    if (getUser) {
+    if (!getUser) {
       return res.sendStatus(401);
     }
 
@@ -53,7 +53,7 @@ class UserController {
       user.password = await argon2.hash(user.password);
 
       models.users.insert(user.username, user.password).then((item) => {
-        res.status(201).send(item.username);
+        res.status(201).send(item);
       });
     } catch (err) {
       console.error(err);
