@@ -61,8 +61,8 @@ export default function Contact() {
                           maxLength: 20,
                           pattern: regex,
                           onChange: handleChange,
-                          placeholder: "John",
                         })}
+                        placeholder="John"
                         className="w-full bg-gray-100 rounded-xl border focus:border-2 border-gray-300 focus:border-[#8ddc93] dark:focus:border-[#ffdb20] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                       />
                     </label>
@@ -91,8 +91,8 @@ export default function Contact() {
                           maxLength: 20,
                           pattern: regex,
                           onChange: handleChange,
-                          placeholder: "Doe",
                         })}
+                        placeholder="Doe"
                         className="w-full bg-gray-100 rounded-xl border focus:border-2 border-gray-300 focus:border-[#8ddc93] dark:focus:border-[#ffdb20] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                       />
                     </label>
