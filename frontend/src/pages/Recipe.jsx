@@ -53,7 +53,7 @@ export default function Recipes() {
           src={recipe.image}
           alt=""
           style={{ height: 300, width: 300 }}
-          className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg"
+          className="mx-auto mb-12 p-2 rounded-[80px] bg-gradient-to-br from-[#78B07C] to-[#ffdb20] shadow-lg duration-700 ease-in-out hover:scale-105"
         />
       </a>
       <h1 className="mb-6 text-center text-3xl dark:text-white text-mada font-bold">
